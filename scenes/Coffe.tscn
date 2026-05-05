@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://din8g4t75dnel"]
+
+[ext_resource type="Texture2D" uid="uid://typ6v1c3j5pg" path="res://sprite/咖啡.png" id="1_41rhp"]
+[ext_resource type="Script" uid="uid://ccvbtt53nhde0" path="res://script/coffe.gd" id="1_vcgxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41rhp"]
+size = Vector2(9, 18)
+
+[sub_resource type="Animation" id="Animation_c1mol"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_vcgxx"]
+resource_name = "咖啡漂浮"
+length = 2.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.1, 1.3, 1.5, 1.7, 1.9, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 3), Vector2(0, 5), Vector2(0, 7), Vector2(0, 8), Vector2(0, 8), Vector2(0, 7), Vector2(0, 5), Vector2(0, 3), Vector2(0, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1xifv"]
+_data = {
+&"RESET": SubResource("Animation_c1mol"),
+&"咖啡漂浮": SubResource("Animation_vcgxx")
+}
+
+[node name="Coffe" type="Node2D"]
+script = ExtResource("1_vcgxx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+texture = ExtResource("1_41rhp")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_41rhp")
+
+[node name="漂浮动画" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1xifv")
+}

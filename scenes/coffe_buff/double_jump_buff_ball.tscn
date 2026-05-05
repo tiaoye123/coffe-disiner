@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://des5jcgnwiytt"]
+
+[ext_resource type="Texture2D" uid="uid://typ6v1c3j5pg" path="res://sprite/咖啡.png" id="1_fkn4r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xhr38"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fkn4r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DoubleJumpBuffBall" type="AnimatedSprite2D"]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_xhr38")
+autoplay = "default"

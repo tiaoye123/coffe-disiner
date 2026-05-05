@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://t1vhwg48jutp"]
+
+[ext_resource type="Script" uid="uid://d4jq2q8b6olji" path="res://script/落地尘埃.gd" id="5_fr60v"]
+
+[sub_resource type="Gradient" id="Gradient_v6fml"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3li8b"]
+gradient = SubResource("Gradient_v6fml")
+
+[sub_resource type="Curve" id="Curve_v6fml"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.786517), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3li8b"]
+curve = SubResource("Curve_v6fml")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v6fml"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 3, 1)
+direction = Vector3(0, 0, 0)
+spread = 60.0
+initial_velocity_min = 15.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 30, 0)
+scale_curve = SubResource("CurveTexture_3li8b")
+color = Color(0.868985, 0.868985, 0.868985, 1)
+color_ramp = SubResource("GradientTexture1D_3li8b")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+z_index = 6
+z_as_relative = false
+rotation = -1.5708
+amount = 30
+speed_scale = 1.5
+process_material = SubResource("ParticleProcessMaterial_v6fml")
+script = ExtResource("5_fr60v")
