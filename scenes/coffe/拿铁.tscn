@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://din8g4t75dnel"]
 
-[ext_resource type="Texture2D" uid="uid://typ6v1c3j5pg" path="res://sprite/咖啡.png" id="1_41rhp"]
+[ext_resource type="Texture2D" uid="uid://typ6v1c3j5pg" path="res://sprite/拿铁咖啡.png" id="1_41rhp"]
 [ext_resource type="Script" uid="uid://ccvbtt53nhde0" path="res://script/coffe.gd" id="1_vcgxx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41rhp"]
@@ -45,7 +45,9 @@ _data = {
 &"咖啡漂浮": SubResource("Animation_vcgxx")
 }
 
-[node name="Coffe" type="Node2D"]
+[node name="拿铁" type="Node2D"]
+position = Vector2(0, -2)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_vcgxx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

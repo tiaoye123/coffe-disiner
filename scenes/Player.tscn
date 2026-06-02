@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://c7rakrsxqfs34"]
+[gd_scene load_steps=65 format=3 uid="uid://c7rakrsxqfs34"]
 
 [ext_resource type="Script" uid="uid://75dlwli0i2k" path="res://script/player.gd" id="1_v6fml"]
 [ext_resource type="Texture2D" uid="uid://yhldui46pn80" path="res://sprite/主角.png" id="2_v6fml"]
@@ -52,6 +52,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_qu4a1"]
@@ -152,8 +164,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_70d11"]
 resource_name = "dead"
-length = 1.6
-step = 0.2
+length = 1.05
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -173,22 +185,22 @@ tracks/1/path = NodePath("Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(2, -2), Vector2(4, -3), Vector2(7, -4), Vector2(4, -5), Vector2(7, -6), Vector2(7, -8), Vector2(7, -6)]
+"values": []
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:flip_h")
+tracks/2/path = NodePath("Sprite2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_v6fml"]
@@ -411,6 +423,47 @@ tracks/3/keys = {
 "values": [Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_lkdrv"]
+resource_name = "respawn"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.002, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mdl7e"]
 _data = {
 &"RESET": SubResource("Animation_3li8b"),
@@ -423,7 +476,8 @@ _data = {
 &"jump_normal_left": SubResource("Animation_6eyey"),
 &"jump_normal_right": SubResource("Animation_bruh7"),
 &"normal_style_left": SubResource("Animation_cw2d6"),
-&"normal_style_right": SubResource("Animation_mdl7e")
+&"normal_style_right": SubResource("Animation_mdl7e"),
+&"respawn": SubResource("Animation_lkdrv")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_70d11"]
@@ -449,6 +503,9 @@ transitions = ["Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTr
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_khinc"]
 animation = &"dead"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bruh7"]
+animation = &"respawn"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6eyey"]
 advance_mode = 2
 
@@ -456,10 +513,16 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o4126"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_o4126"]
 states/dead/node = SubResource("AnimationNodeAnimation_khinc")
 states/dead/position = Vector2(471, 98)
-transitions = ["Start", "dead", SubResource("AnimationNodeStateMachineTransition_6eyey"), "dead", "End", SubResource("AnimationNodeStateMachineTransition_d3wef")]
+states/respawn/node = SubResource("AnimationNodeAnimation_bruh7")
+states/respawn/position = Vector2(598, 100)
+transitions = ["Start", "dead", SubResource("AnimationNodeStateMachineTransition_6eyey"), "dead", "respawn", SubResource("AnimationNodeStateMachineTransition_d3wef"), "respawn", "End", SubResource("AnimationNodeStateMachineTransition_o4126")]
 
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_v6fml"]
 
@@ -552,17 +615,19 @@ states/Start/position = Vector2(207, 100)
 "states/角色跳跃/node" = SubResource("AnimationNodeStateMachine_v6fml")
 "states/角色跳跃/position" = Vector2(439, 8)
 transitions = ["Start", "角色移动", SubResource("AnimationNodeStateMachineTransition_khinc"), "角色移动", "角色跳跃", SubResource("AnimationNodeStateMachineTransition_3li8b"), "角色跳跃", "角色移动", SubResource("AnimationNodeStateMachineTransition_mdl7e"), "角色移动", "角色冲刺", SubResource("AnimationNodeStateMachineTransition_70d11"), "角色冲刺", "角色移动", SubResource("AnimationNodeStateMachineTransition_bruh7"), "角色移动", "角色死亡", SubResource("AnimationNodeStateMachineTransition_lkdrv"), "角色死亡", "角色移动", SubResource("AnimationNodeStateMachineTransition_p7iby")]
-graph_offset = Vector2(-148, -19)
+graph_offset = Vector2(-41, -25)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6eyey"]
+graph_offset = Vector2(-381, 100)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_bruh7")
 nodes/StateMachine/position = Vector2(-80, 140)
 node_connections = [&"output", 0, &"StateMachine"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vlq"]
-size = Vector2(7, 14.5)
+size = Vector2(7.05, 14)
 
 [sub_resource type="Gradient" id="Gradient_v6fml"]
+offsets = PackedFloat32Array(0, 0.990909)
 colors = PackedColorArray(0.311405, 0.00640133, 1.08294e-07, 1, 0.310978, 0, 0.0510792, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_3li8b"]
@@ -571,7 +636,7 @@ gradient = SubResource("Gradient_v6fml")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v6fml"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(1, 5, 1)
+emission_box_extents = Vector3(1, 7.5, 1)
 spread = 180.0
 initial_velocity_min = 12.55
 initial_velocity_max = 13.25
@@ -579,13 +644,72 @@ gravity = Vector3(0, 0, 0)
 scale_over_velocity_max = 18.5
 color_ramp = SubResource("GradientTexture1D_3li8b")
 
-[node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
+[sub_resource type="Gradient" id="Gradient_3li8b"]
+colors = PackedColorArray(0, 0, 1, 1, 0, 0, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mdl7e"]
+gradient = SubResource("Gradient_3li8b")
+
+[sub_resource type="Curve" id="Curve_qu4a1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.52809), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_70d11"]
+curve = SubResource("Curve_qu4a1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3li8b"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_min = 0.8
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_70d11")
+color_ramp = SubResource("GradientTexture1D_mdl7e")
+
+[sub_resource type="Gradient" id="Gradient_mdl7e"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qu4a1"]
+gradient = SubResource("Gradient_mdl7e")
+
+[sub_resource type="Curve" id="Curve_70d11"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.595506), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cw2d6"]
+curve = SubResource("Curve_70d11")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mdl7e"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(3, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 30.0
+initial_velocity_min = 12.0
+initial_velocity_max = 12.0
+gravity = Vector3(0, 12, 0)
+scale_curve = SubResource("CurveTexture_cw2d6")
+color_ramp = SubResource("GradientTexture1D_qu4a1")
+
+[sub_resource type="Gradient" id="Gradient_qu4a1"]
+colors = PackedColorArray(0.615686, 0.466667, 0.137255, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_70d11"]
+gradient = SubResource("Gradient_qu4a1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qu4a1"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(12, 3, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+gravity = Vector3(0, -5, 0)
+color_ramp = SubResource("GradientTexture1D_70d11")
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 script = ExtResource("1_v6fml")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
-position_smoothing_speed = 2.0
+jump_speed = -165.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2, -2)
@@ -613,7 +737,7 @@ anim_player = NodePath("../AnimationPlayer")
 "parameters/StateMachine/角色跳跃/BlendSpace1D/blend_position" = -0.894949
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.75)
+position = Vector2(-0.525, 1)
 shape = SubResource("RectangleShape2D_p0vlq")
 
 [node name="疯狂粒子" type="GPUParticles2D" parent="."]
@@ -621,7 +745,39 @@ position = Vector2(0, -2)
 rotation = -1.5708
 scale = Vector2(1.15623, 0.972486)
 emitting = false
-amount = 150
+amount = 1
 lifetime = 0.5
-speed_scale = 46.54
+speed_scale = 64.0
 process_material = SubResource("ParticleProcessMaterial_v6fml")
+
+[node name="泪水01" type="GPUParticles2D" parent="."]
+position = Vector2(1.595, -0.785)
+emitting = false
+lifetime = 0.4
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_3li8b")
+
+[node name="泪水02" type="GPUParticles2D" parent="."]
+position = Vector2(-1.42, -0.79)
+emitting = false
+lifetime = 0.4
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_3li8b")
+
+[node name="走路粒子" type="GPUParticles2D" parent="."]
+position = Vector2(0, 7)
+rotation = -2.15723
+emitting = false
+lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_mdl7e")
+
+[node name="二段跳粒子" type="GPUParticles2D" parent="."]
+position = Vector2(-1, 8)
+emitting = false
+amount = 1500
+lifetime = 0.6
+speed_scale = 1.2
+use_fixed_seed = true
+seed = 2694967206
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_qu4a1")

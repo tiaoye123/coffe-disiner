@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c76odpb0nmveg" path="res://script/dead_zone.gd" id="1_77aog"]
 
-[node name="Area2D" type="Area2D"]
+[node name="Dead_zone" type="Area2D"]
+visible = false
 script = ExtResource("1_77aog")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

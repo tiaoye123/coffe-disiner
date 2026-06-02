@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://p8gca77hq8tp"]
+
+[ext_resource type="Script" uid="uid://cwowcqhqxevd5" path="res://script/dialogue_ui.gd" id="1_6q285"]
+[ext_resource type="Script" uid="uid://bv4f4ro53gt2w" path="res://script/dialogue.gd" id="2_jx1sv"]
+[ext_resource type="Script" uid="uid://ctq32uuxm8kma" path="res://script/dialogue_group.gd" id="3_e6usr"]
+
+[sub_resource type="Resource" id="Resource_imsod"]
+script = ExtResource("3_e6usr")
+dialogue_group = Array[ExtResource("2_jx1sv")]([])
+metadata/_custom_type_script = "uid://ctq32uuxm8kma"
+
+[node name="Dialogue_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6q285")
+dialogues01 = SubResource("Resource_imsod")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="头像右" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="对话框" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/对话框"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/对话框/MarginContainer"]
+layout_mode = 2
+
+[node name="the_name" type="Label" parent="HBoxContainer/对话框/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "name"
+autowrap_mode = 3
+
+[node name="text" type="Label" parent="HBoxContainer/对话框/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "text"
+autowrap_mode = 3
+
+[node name="头像左" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+stretch_mode = 5
+
+[connection signal="gui_input" from="HBoxContainer/对话框" to="." method="_on_对话框_gui_input"]

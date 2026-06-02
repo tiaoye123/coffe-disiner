@@ -9,6 +9,8 @@ func _ready() -> void:
 	漂浮动画.play("咖啡漂浮")
 
 
+
+
 #玩家碰到咖啡
 func player_touch(body : Node2D)-> void:
 	Global.get_coffe_buff.emit(buff_name)

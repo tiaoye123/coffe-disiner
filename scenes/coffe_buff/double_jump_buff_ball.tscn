@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://des5jcgnwiytt"]
 
-[ext_resource type="Texture2D" uid="uid://typ6v1c3j5pg" path="res://sprite/咖啡.png" id="1_fkn4r"]
+[ext_resource type="Texture2D" uid="uid://typ6v1c3j5pg" path="res://sprite/拿铁咖啡.png" id="1_fkn4r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xhr38"]
 animations = [{

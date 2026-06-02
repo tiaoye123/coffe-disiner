@@ -7,10 +7,8 @@ var coffe_number : float:
 	set(coffe_value):
 		coffe_number = coffe_value
 		value = coffe_value
-		if coffe_value >= 30:
+		if Global.crasy_rate >= 1:
 			颜色动画.play("happy")
-		elif coffe_value >= 10:
-			颜色动画.play("normal")
 		else:
 			颜色动画.play("crasy")
 

@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0ey8t68dn3y0"]
+
+[ext_resource type="Texture2D" uid="uid://yam1oo40ex03" path="res://sprite/含糖咖啡.png" id="1_3f31q"]
+[ext_resource type="Script" uid="uid://bokoyp0rxml1j" path="res://script/含糖咖啡.gd" id="1_wthc0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3f31q"]
+size = Vector2(8.07292, 15.9375)
+
+[sub_resource type="Animation" id="Animation_c1mol"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_vcgxx"]
+resource_name = "咖啡漂浮"
+length = 2.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.1, 1.3, 1.5, 1.7, 1.9, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 3), Vector2(0, 5), Vector2(0, 7), Vector2(0, 8), Vector2(0, 8), Vector2(0, 7), Vector2(0, 5), Vector2(0, 3), Vector2(0, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1xifv"]
+_data = {
+&"RESET": SubResource("Animation_c1mol"),
+&"咖啡漂浮": SubResource("Animation_vcgxx")
+}
+
+[node name="含糖咖啡" type="Node2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_wthc0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+texture = ExtResource("1_3f31q")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(0, 3.02083)
+shape = SubResource("RectangleShape2D_3f31q")
+
+[node name="漂浮动画" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1xifv")
+}
+autoplay = "咖啡漂浮"
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlp5u4wec3g8p"]
+
+[ext_resource type="Script" uid="uid://c67dn6f7prxl8" path="res://script/死亡转场.gd" id="1_l8i7h"]
+
+[sub_resource type="Animation" id="Animation_hnsmo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-296, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0g7em"]
+resource_name = "死亡转场"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-168, 0), Vector2(456, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hnsmo"]
+_data = {
+&"RESET": SubResource("Animation_hnsmo"),
+&"死亡转场": SubResource("Animation_0g7em")
+}
+
+[node name="死亡转场" type="Polygon2D"]
+visible = false
+z_index = 100
+position = Vector2(-296, 0)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-136, 72, -200, 72, -200, 56, -184, 56, -184, 40, -168, 40, -168, 24, -152, 24, -152, 8, -136, 8, -136, -8, -120, -8, -120, -24, -104, -24, -104, -40, -88, -40, -88, -56, -72, -56, -72, -72, 168, -72, 168, -56, 152, -56, 152, -40, 136, -40, 136, -24, 120, -24, 120, -8, 104, -8, 104, 8, 88, 8, 88, 24, 72, 24, 72, 40, 56, 40, 56, 56, 40, 56, 40, 72)
+script = ExtResource("1_l8i7h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hnsmo")
+}

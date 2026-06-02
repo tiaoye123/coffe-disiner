@@ -1,0 +1,35 @@
+extends StaticBody2D
+
+@onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
+@onready var area_2d: Area2D = $Area2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+
+
+
+#玩家踩上平台后播放破碎动画 
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		平台晃动()
+
+
+func 平台晃动() -> void:
+	area_2d.queue_free()
+	var shake_tween = create_tween()
+	shake_tween.tween_property(self , "position" , position + Vector2(0.16, 0) , 0.05 )
+	shake_tween.tween_property(self , "position" , position + Vector2(-0.32 , 0) , 0.05 )
+	shake_tween.tween_property(self , "position" , position + Vector2(0.32 , 0) , 0.05 )
+	shake_tween.tween_property(self , "position" , position + Vector2(-0.32 , 0) , 0.05 )
+	shake_tween.tween_property(self , "position" , position + Vector2(0.32 , 0) , 0.05 )
+	shake_tween.tween_property(self , "position" , position + Vector2(-0.16, 0) , 0.05 )
+	await shake_tween.finished
+	平台破碎()
+
+
+func 平台破碎() -> void:
+	gpu_particles_2d.emitting = true
+	sprite_2d.visible = false
+	collision_shape_2d.queue_free()
+	await get_tree().create_timer(0.8).timeout
+	queue_free()

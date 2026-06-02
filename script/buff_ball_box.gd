@@ -8,27 +8,34 @@ const DOUBLE_JUMP_BUFF_BALL = preload("res://scenes/coffe_buff/double_jump_buff_
 #用以存放当前角色拥有的buff球的容器
 var buff_array : Array[Node2D]
 var spawn_position : Vector2
+var double_jump_index : float = 0
 
 
 func _ready() -> void:
 	#接受玩家发送的位置信息
 	Global.position_for_buff_ball.connect(check_position)
 	Global.get_coffe_buff.connect(enter_buff_ball)
-	Global.enter_to_normal.connect(delete_buff_ball)
+	Global.enter_to_crasy.connect(delete_buff_ball)
+	Global.玩家死亡转场.connect(delete_buff_ball)
 
 #依照玩家获得的buff向数组中添入buff球
 func enter_buff_ball(buff_name : String) -> void:
 	if buff_name == "二段跳":
 		var a = DOUBLE_JUMP_BUFF_BALL.instantiate()
-		add_child(a)
-		buff_array.append(a)
-		a.global_position = spawn_position
+		if double_jump_index <= 1:
+			double_jump_index += 10
+			add_child(a)
+			buff_array.append(a)
+			a.global_position = spawn_position
+		else:
+			a.queue_free()
 
-
+#删除buff球
 func delete_buff_ball() -> void:
 	for i in buff_array.size():
 		buff_array[i].queue_free()
 	buff_array.clear()
+	double_jump_index = 0
 
 
 #利用玩家位置计算出咖啡球的几个终点位置

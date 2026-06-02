@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Dialogue_group" load_steps=5 format=3 uid="uid://cbgyafh5evfki"]
+
+[ext_resource type="Script" uid="uid://bv4f4ro53gt2w" path="res://script/dialogue.gd" id="1_5i37y"]
+[ext_resource type="Script" uid="uid://ctq32uuxm8kma" path="res://script/dialogue_group.gd" id="2_a664i"]
+
+[sub_resource type="Resource" id="Resource_5i37y"]
+script = ExtResource("1_5i37y")
+text = "......！"
+name = "你"
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_a664i"]
+script = ExtResource("1_5i37y")
+text = "不好！上班要迟到了！"
+name = "你"
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[resource]
+script = ExtResource("2_a664i")
+dialogue_group = Array[ExtResource("1_5i37y")]([SubResource("Resource_5i37y"), SubResource("Resource_a664i")])
+metadata/_custom_type_script = "uid://ctq32uuxm8kma"

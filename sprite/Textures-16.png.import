@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://typ6v1c3j5pg"
-path="res://.godot/imported/咖啡.png-274aadb0e27f742b662b450cc2c2fa20.ctex"
+uid="uid://dyb0ju43a06yb"
+path="res://.godot/imported/Textures-16.png-02f4d9eba745d0c4c8a422e4a057cb16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/咖啡.png"
-dest_files=["res://.godot/imported/咖啡.png-274aadb0e27f742b662b450cc2c2fa20.ctex"]
+source_file="res://sprite/Textures-16.png"
+dest_files=["res://.godot/imported/Textures-16.png-02f4d9eba745d0c4c8a422e4a057cb16.ctex"]
 
 [params]
 

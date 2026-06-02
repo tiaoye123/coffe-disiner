@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://csel7hdtjh8r3"]
+
+[ext_resource type="Script" uid="uid://qmxpe2xbwrxr" path="res://script/关卡摄像机.gd" id="1_0g7em"]
+
+[node name="Camera2D" type="Camera2D"]
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+script = ExtResource("1_0g7em")
