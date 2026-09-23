@@ -1,7 +1,8 @@
-[gd_scene load_steps=65 format=3 uid="uid://c7rakrsxqfs34"]
+[gd_scene load_steps=66 format=3 uid="uid://c7rakrsxqfs34"]
 
 [ext_resource type="Script" uid="uid://75dlwli0i2k" path="res://script/player.gd" id="1_v6fml"]
 [ext_resource type="Texture2D" uid="uid://yhldui46pn80" path="res://sprite/主角.png" id="2_v6fml"]
+[ext_resource type="Texture2D" uid="uid://cdaq8peykjf47" path="res://sprite/美式咖啡球.png" id="3_3li8b"]
 
 [sub_resource type="Animation" id="Animation_3li8b"]
 length = 0.001
@@ -618,13 +619,13 @@ transitions = ["Start", "角色移动", SubResource("AnimationNodeStateMachineTr
 graph_offset = Vector2(-41, -25)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6eyey"]
-graph_offset = Vector2(-381, 100)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_bruh7")
 nodes/StateMachine/position = Vector2(-80, 140)
 node_connections = [&"output", 0, &"StateMachine"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vlq"]
-size = Vector2(7.05, 14)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3li8b"]
+radius = 3.525
+height = 14.0
 
 [sub_resource type="Gradient" id="Gradient_v6fml"]
 offsets = PackedFloat32Array(0, 0.990909)
@@ -738,7 +739,7 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.525, 1)
-shape = SubResource("RectangleShape2D_p0vlq")
+shape = SubResource("CapsuleShape2D_3li8b")
 
 [node name="疯狂粒子" type="GPUParticles2D" parent="."]
 position = Vector2(0, -2)
@@ -781,3 +782,15 @@ use_fixed_seed = true
 seed = 2694967206
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_qu4a1")
+
+[node name="美式咖啡球" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-11, -6)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_3li8b")
+
+[node name="美式咖啡球2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-5, -15)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_3li8b")

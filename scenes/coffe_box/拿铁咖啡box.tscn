@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr7g5xm3sx7h8"]
+
+[ext_resource type="PackedScene" uid="uid://din8g4t75dnel" path="res://scenes/coffe/拿铁.tscn" id="1_0qd5n"]
+[ext_resource type="Script" uid="uid://v8lnu7ssb0cn" path="res://script/咖啡box.gd" id="1_kac5l"]
+
+[node name="拿铁咖啡box" type="Node2D"]
+script = ExtResource("1_kac5l")
+coffe = ExtResource("1_0qd5n")
+
+[node name="拿铁" parent="." instance=ExtResource("1_0qd5n")]

@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwglwo1rcpnkv"]
+
+[ext_resource type="Script" uid="uid://dbm3kbhut7l0r" path="res://script/拿铁咖啡便利贴.gd" id="1_dohi1"]
+[ext_resource type="Texture2D" uid="uid://b2dcgkxcj7ay4" path="res://sprite/便利贴（拿铁咖啡）.png" id="2_ue6qd"]
+[ext_resource type="FontFile" uid="uid://dylhnhd036qvf" path="res://sprite/PixelOperator8.ttf" id="3_ue6qd"]
+[ext_resource type="Texture2D" uid="uid://b4hmwdnv1quep" path="res://sprite/圆形计量条-Sheet.png" id="4_xmswd"]
+
+[node name="拿铁咖啡便利贴" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dohi1")
+"起始位置" = Vector2(221, -16)
+"展示位置" = Vector2(221, 47)
+"最终位置" = Vector2(295, 47)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(295, 47)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("2_ue6qd")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -26.0
+offset_top = -60.0
+offset_right = 42.0
+offset_bottom = -47.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.351032, 0.149755, 0.020525, 1)
+theme_override_fonts/font = ExtResource("3_ue6qd")
+theme_override_font_sizes/font_size = 9
+text = "拿铁"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Sprite2D"]
+offset_left = -26.4861
+offset_top = -47.4443
+offset_right = 41.5139
+offset_bottom = -34.4443
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ue6qd")
+theme_override_font_sizes/font_size = 5
+text = "饮用后会获得在空中以特殊形"
+
+[node name="Label6" type="Label" parent="Sprite2D"]
+offset_left = -25.5483
+offset_top = -39.4211
+offset_right = 42.4517
+offset_bottom = -26.4211
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ue6qd")
+theme_override_font_sizes/font_size = 5
+text = "式再次“跳跃”的能力"
+
+[node name="Label4" type="Label" parent="Sprite2D"]
+offset_left = -44.3663
+offset_top = -9.84996
+offset_right = 23.6337
+offset_bottom = 3.15004
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ue6qd")
+theme_override_font_sizes/font_size = 5
+text = "温和，细腻。有如抚"
+
+[node name="Label3" type="Label" parent="Sprite2D"]
+offset_left = -44.2517
+offset_top = -1.83718
+offset_right = 23.7483
+offset_bottom = 11.1628
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ue6qd")
+theme_override_font_sizes/font_size = 5
+text = "摸面庞的和煦春风一"
+
+[node name="Label5" type="Label" parent="Sprite2D"]
+offset_left = -44.2517
+offset_top = 5.61293
+offset_right = 23.7483
+offset_bottom = 18.6129
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ue6qd")
+theme_override_font_sizes/font_size = 5
+text = "般，好喝！"
+
+[node name="时间计量条" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0.784314, 0.784314, 0.784314, 1)
+position = Vector2(-55.24, 17.2905)
+texture = ExtResource("4_xmswd")
+hframes = 33

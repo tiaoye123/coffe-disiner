@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cugl0axmfx1vc"]
+
+[ext_resource type="Script" uid="uid://v8lnu7ssb0cn" path="res://script/咖啡box.gd" id="1_prx38"]
+[ext_resource type="PackedScene" uid="uid://b0ey8t68dn3y0" path="res://scenes/coffe/含糖咖啡.tscn" id="2_x164n"]
+
+[node name="含糖咖啡box" type="Node2D"]
+script = ExtResource("1_prx38")
+coffe = ExtResource("2_x164n")
+
+[node name="含糖咖啡" parent="." instance=ExtResource("2_x164n")]
+scale = Vector2(0.4, 0.4)

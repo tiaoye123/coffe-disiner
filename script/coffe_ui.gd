@@ -15,7 +15,7 @@ var coffe_number : float:
 
 
 func _ready() -> void:
-	
+	Global.第二房间咖啡演出开始.connect(func() -> void: visible = true)
 	max_value = Global.coffe_number_max
 
 

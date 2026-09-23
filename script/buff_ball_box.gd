@@ -1,20 +1,23 @@
 extends Node2D
 
 var first_buff_position : Vector2
+var second_buff_position : Vector2
 var Acceleration : float = 100
 var speed : Vector2 
-@onready var sprite_2d: Sprite2D = $Sprite2D
 const DOUBLE_JUMP_BUFF_BALL = preload("res://scenes/coffe_buff/double_jump_buff_ball.tscn")
+const A_coffe_buff_ball = preload("res://scenes/coffe_buff/a_coffe_buff_ball.tscn")
 #用以存放当前角色拥有的buff球的容器
 var buff_array : Array[Node2D]
 var spawn_position : Vector2
 var double_jump_index : float = 0
+var A_coffe_index : float = 0
 
 
 func _ready() -> void:
 	#接受玩家发送的位置信息
 	Global.position_for_buff_ball.connect(check_position)
 	Global.get_coffe_buff.connect(enter_buff_ball)
+	Global.取得含糖咖啡.connect(delete_buff_ball)
 	Global.enter_to_crasy.connect(delete_buff_ball)
 	Global.玩家死亡转场.connect(delete_buff_ball)
 
@@ -29,13 +32,21 @@ func enter_buff_ball(buff_name : String) -> void:
 			a.global_position = spawn_position
 		else:
 			a.queue_free()
+	elif buff_name == "强化冲刺":
+		var a = A_coffe_buff_ball.instantiate()
+		if A_coffe_index <= 1:
+			A_coffe_index += 10
+			add_child(a)
+			buff_array.append(a)
+			a.global_position = spawn_position
 
 #删除buff球
 func delete_buff_ball() -> void:
 	for i in buff_array.size():
-		buff_array[i].queue_free()
+		buff_array[i].delete()
 	buff_array.clear()
 	double_jump_index = 0
+	A_coffe_index = 0
 
 
 #利用玩家位置计算出咖啡球的几个终点位置
@@ -44,12 +55,18 @@ func check_position(player_position : Vector2 , is_flip : bool) -> void:
 	spawn_position.x = player_position.x - 10
 	spawn_position.y = player_position.y - 10
 	
-	first_buff_position.y = player_position.y - 8
+	#1号buff球位置
+	first_buff_position.y = player_position.y - 6
 	if is_flip == false:
-		first_buff_position.x = player_position.x -9
+		first_buff_position.x = player_position.x -11
 	else:
-		first_buff_position.x = player_position.x +8
-		
+		first_buff_position.x = player_position.x +11
+	#2号buff球位置
+	second_buff_position.y = player_position.y - 15 
+	if is_flip == false:
+		second_buff_position.x = player_position.x - 5
+	else:
+		second_buff_position.x = player_position.x + 5
 	buff_ball_move()
 
 
@@ -58,6 +75,10 @@ func buff_ball_move() -> void:
 	for i in buff_array.size():
 		if i == 0 :
 			speed = change_buff_ball_speed(buff_array[i].global_position, first_buff_position)
+			speed.y += 1.5
+			buff_array[i].global_position += speed * get_process_delta_time()
+		if i == 1 :
+			speed = change_buff_ball_speed(buff_array[i].global_position , second_buff_position)
 			speed.y += 1.5
 			buff_array[i].global_position += speed * get_process_delta_time()
 

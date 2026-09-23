@@ -32,6 +32,8 @@ window/vsync/vsync_mode=0
 
 Player="玩家"
 trap=""
+coffe=""
+animy=""
 
 [input]
 

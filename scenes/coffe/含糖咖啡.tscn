@@ -45,7 +45,7 @@ _data = {
 &"咖啡漂浮": SubResource("Animation_vcgxx")
 }
 
-[node name="含糖咖啡" type="Node2D"]
+[node name="含糖咖啡" type="Node2D" groups=["coffe"]]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_wthc0")
 

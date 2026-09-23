@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2byd655lnegj"]
+
+[ext_resource type="Script" uid="uid://iextjrm23nh" path="res://script/美式咖啡便利贴.gd" id="1_h36su"]
+[ext_resource type="Texture2D" uid="uid://d2joxoxtlcdn7" path="res://sprite/便利贴（美式咖啡）.png" id="2_h36su"]
+[ext_resource type="FontFile" uid="uid://dylhnhd036qvf" path="res://sprite/PixelOperator8.ttf" id="3_76xk6"]
+[ext_resource type="Texture2D" uid="uid://b4hmwdnv1quep" path="res://sprite/圆形计量条-Sheet.png" id="4_8fb52"]
+
+[node name="美式咖啡便利贴" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_h36su")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(295, 47)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("2_h36su")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -26.0
+offset_top = -60.0
+offset_right = 42.0
+offset_bottom = -47.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.351032, 0.149755, 0.020525, 1)
+theme_override_fonts/font = ExtResource("3_76xk6")
+theme_override_font_sizes/font_size = 9
+text = "冰美式"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Sprite2D"]
+offset_left = -26.4861
+offset_top = -47.4443
+offset_right = 41.5139
+offset_bottom = -34.4443
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_76xk6")
+theme_override_font_sizes/font_size = 5
+text = "饮用后冲刺性能会获得强化，长"
+
+[node name="Label6" type="Label" parent="Sprite2D"]
+offset_left = -25.5483
+offset_top = -39.4211
+offset_right = 42.4517
+offset_bottom = -26.4211
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_76xk6")
+theme_override_font_sizes/font_size = 5
+text = "按“冲刺”键可以延长冲刺距离"
+
+[node name="Label4" type="Label" parent="Sprite2D"]
+offset_left = -44.3663
+offset_top = -9.84996
+offset_right = 23.6337
+offset_bottom = 3.15004
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_76xk6")
+theme_override_font_sizes/font_size = 5
+text = "清苦，酸涩。虽然口"
+
+[node name="Label3" type="Label" parent="Sprite2D"]
+offset_left = -44.2517
+offset_top = -1.83718
+offset_right = 23.7483
+offset_bottom = 11.1628
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_76xk6")
+theme_override_font_sizes/font_size = 5
+text = "味算不上好喝，但能"
+
+[node name="Label5" type="Label" parent="Sprite2D"]
+offset_left = -44.2517
+offset_top = 5.61293
+offset_right = 23.7483
+offset_bottom = 18.6129
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_76xk6")
+theme_override_font_sizes/font_size = 5
+text = "让头脑清醒，还不错"
+
+[node name="时间计量条" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0.784314, 0.784314, 0.784314, 1)
+position = Vector2(-55.24, 17.2905)
+texture = ExtResource("4_8fb52")
+hframes = 33

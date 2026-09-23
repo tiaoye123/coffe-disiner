@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="Dialogue_group" load_steps=7 format=3 uid="uid://bcnxysk0jlbbo"]
+
+[ext_resource type="Script" uid="uid://bv4f4ro53gt2w" path="res://script/dialogue.gd" id="1_hvaye"]
+[ext_resource type="Script" uid="uid://ctq32uuxm8kma" path="res://script/dialogue_group.gd" id="2_ixkfb"]
+
+[sub_resource type="Resource" id="Resource_hvaye"]
+script = ExtResource("1_hvaye")
+text = "咱不要这个！"
+name = ""
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_ixkfb"]
+script = ExtResource("1_hvaye")
+text = "像是沼泽里的污水呐，汝是怎么喝下去的"
+name = ""
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_cte0f"]
+script = ExtResource("1_hvaye")
+text = "过量的糖分是咖啡的敌人啊..."
+name = ""
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_n7h4e"]
+script = ExtResource("1_hvaye")
+text = "好恶心"
+name = ""
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[resource]
+script = ExtResource("2_ixkfb")
+dialogue_group = Array[ExtResource("1_hvaye")]([SubResource("Resource_hvaye"), SubResource("Resource_ixkfb"), SubResource("Resource_cte0f"), SubResource("Resource_n7h4e")])
+metadata/_custom_type_script = "uid://ctq32uuxm8kma"

@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6y76a0gi1vhn"]
+
+[ext_resource type="Texture2D" uid="uid://c4100fwuppqa8" path="res://sprite/泡泡粒子效果.png" id="1_1hk8d"]
+[ext_resource type="Script" uid="uid://dq5hid3nb60hd" path="res://script/a_coffe_buff_ball.gd" id="1_dvnlq"]
+[ext_resource type="Texture2D" uid="uid://cdaq8peykjf47" path="res://sprite/美式咖啡球.png" id="1_he85q"]
+
+[sub_resource type="Gradient" id="Gradient_he85q"]
+offsets = PackedFloat32Array(0, 0.145455, 0.290909, 0.436364, 0.590909, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.878431, 1, 1, 1, 1, 1, 1, 1, 0.807843, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_064b4"]
+gradient = SubResource("Gradient_he85q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dvnlq"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(14.12, 7, 1)
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+spread = 30.0
+initial_velocity_max = 5.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, -5, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_min = -6.0
+radial_accel_max = 6.0
+damping_max = 2.0
+scale_min = 0.3
+scale_max = 0.35
+color_ramp = SubResource("GradientTexture1D_064b4")
+
+[sub_resource type="Gradient" id="Gradient_1hk8d"]
+offsets = PackedFloat32Array(0, 0.145455, 0.290909, 0.436364, 0.590909, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.878431, 1, 1, 1, 1, 1, 1, 1, 0.807843, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_he85q"]
+gradient = SubResource("Gradient_1hk8d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rbiab"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(14.12, 7, 1)
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+spread = 30.0
+initial_velocity_max = 5.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, -5, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_min = -6.0
+radial_accel_max = 6.0
+damping_max = 2.0
+scale_min = 0.3
+scale_max = 0.35
+color_ramp = SubResource("GradientTexture1D_he85q")
+
+[node name="A_coffe_buff_ball" type="Node2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_dvnlq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 1e-05)
+texture = ExtResource("1_he85q")
+
+[node name="气泡漂移粒子" type="GPUParticles2D" parent="."]
+amount = 5
+texture = ExtResource("1_1hk8d")
+lifetime = 1.5
+explosiveness = 0.34
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_dvnlq")
+
+[node name="气泡消除粒子" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+texture = ExtResource("1_1hk8d")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_rbiab")

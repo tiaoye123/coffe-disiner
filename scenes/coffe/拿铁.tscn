@@ -45,9 +45,9 @@ _data = {
 &"咖啡漂浮": SubResource("Animation_vcgxx")
 }
 
-[node name="拿铁" type="Node2D"]
+[node name="拿铁" type="Node2D" groups=["coffe"]]
+z_index = 5
 position = Vector2(0, -2)
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_vcgxx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

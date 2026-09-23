@@ -32,6 +32,7 @@ grow_vertical = 0
 [node name="头像右" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
+expand_mode = 1
 stretch_mode = 5
 
 [node name="对话框" type="Panel" parent="HBoxContainer"]
@@ -70,6 +71,7 @@ autowrap_mode = 3
 [node name="头像左" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
+expand_mode = 1
 stretch_mode = 5
 
 [connection signal="gui_input" from="HBoxContainer/对话框" to="." method="_on_对话框_gui_input"]

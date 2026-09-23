@@ -31,6 +31,23 @@ const 第三房间limit_left : float = 278
 const 第三房间limit_top : float = -172
 const 第三房间limit_right : float = 100000
 const 第三房间limit_button : float = -28
+#第四房间
+@onready var 切房判定03: Area2D = $"../切房判定组/切房判定03"
+const forth_room : Vector2 = Vector2(1099 , -100)
+const player_start_position_in_forth_room = Vector2(993 , -54)
+const 第四房间limit_left : float = 971
+const 第四房间limit_top : float = -430
+const 第四房间limit_right : float = 1227
+const 第四房间limit_button : float = -28
+const 第三第四房间之间空气墙 = preload("res://scenes/第三第四房间之间空气墙.tscn")
+#第五房间
+@onready var 切房判定04: Area2D = $"../切房判定组/切房判定04"
+const 第五房间limit_left : float = 1235
+const 第五房间limit_top : float = -430
+const 第五房间limit_right : float = 1491
+const 第五房间limit_button : float = -28
+const 第四第五房间之间空气墙 = preload("res://scenes/第四第五房间之间空气墙.tscn")
+const player_start_position_in_fifth_room : Vector2 = Vector2(1440 , -360)
 
 
 func _ready() -> void:
@@ -56,7 +73,7 @@ func _process(delta: float) -> void:
 	#根据需求让相机跟随角色
 	if player_follow:
 		position_smoothing_speed = 2
-		global_position.x = Global.player_position.x
+		global_position = Global.player_position
 	else:
 		position_smoothing_speed = 5
 
@@ -94,6 +111,7 @@ func _on_切房判定01_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(1.3).timeout
 		Global.player_can_move = true
 		var a = 第一房间专用空气墙.instantiate()
+		Global.第二房间开场演出准备.emit()
 		get_parent().add_child(a)
 
 
@@ -117,6 +135,36 @@ func 第三方房间特殊区域进入(body: Node2D) -> void:
 		global_position.x = 846
 		player_follow = false
 		第三房间area_2d.monitoring = false
+
+
+#03-04
+func _on_切房判定03_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		切房判定03.queue_free()
+		body.change_start_position(player_start_position_in_forth_room)
+		change_camera_limit(第四房间limit_left , 第四房间limit_right , 第四房间limit_top , 第四房间limit_button)
+		player_follow = false
+		var a = 第三第四房间之间空气墙.instantiate()
+		get_parent().add_child(a)
+		Global.player_can_move = false
+		await get_tree().create_timer(1.0).timeout
+		Global.player_can_move = true
+		player_follow = true
+	
+
+
+#04-05
+func _on_切房判定04_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		切房判定04.queue_free()
+		var a = 第四第五房间之间空气墙.instantiate()
+		body.change_start_position(player_start_position_in_fifth_room)
+		get_parent().add_child(a)
+		change_camera_limit(第五房间limit_left , 第五房间limit_right , 第五房间limit_top , 第五房间limit_button)
+		Global.player_can_move = false
+		await get_tree().create_timer(1.0).timeout
+		Global.player_can_move = true
+		player_follow = true
 
 
 func 死亡重置判定() -> void:

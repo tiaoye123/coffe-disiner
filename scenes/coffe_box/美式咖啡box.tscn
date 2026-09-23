@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://kjxj7ivgoq4b"]
+
+[ext_resource type="Script" uid="uid://c6f7i3if1ov3p" path="res://script/美式咖啡box.gd" id="1_twklb"]
+[ext_resource type="PackedScene" uid="uid://d1wnhp7hi1lod" path="res://scenes/coffe/冰美式.tscn" id="2_lg6wh"]
+
+[node name="美式咖啡box" type="Node2D"]
+z_index = 5
+script = ExtResource("1_twklb")
+A_coffe = ExtResource("2_lg6wh")
+
+[node name="冰美式" parent="." instance=ExtResource("2_lg6wh")]

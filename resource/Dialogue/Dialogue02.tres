@@ -1,0 +1,106 @@
+[gd_resource type="Resource" script_class="Dialogue_group" load_steps=16 format=3 uid="uid://vniao1gcc4nw"]
+
+[ext_resource type="Script" uid="uid://bv4f4ro53gt2w" path="res://script/dialogue.gd" id="1_qafre"]
+[ext_resource type="Script" uid="uid://ctq32uuxm8kma" path="res://script/dialogue_group.gd" id="2_s4i37"]
+[ext_resource type="Texture2D" uid="uid://ckhdqjrqw12cs" path="res://icon.svg" id="2_wb1ja"]
+
+[sub_resource type="Resource" id="Resource_qafre"]
+script = ExtResource("1_qafre")
+text = "呜哇...."
+name = "小恶魔"
+texture = ExtResource("2_wb1ja")
+show_on_left = true
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_uw5xd"]
+script = ExtResource("1_qafre")
+text = "早..."
+name = "小恶魔"
+texture = ExtResource("2_wb1ja")
+show_on_left = true
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_s4i37"]
+script = ExtResource("1_qafre")
+text = ".....?"
+name = "你"
+texture = ExtResource("2_wb1ja")
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_itnhv"]
+script = ExtResource("1_qafre")
+text = "..汝那疑惑的表情是怎么回事?"
+name = "小恶魔"
+texture = ExtResource("2_wb1ja")
+show_on_left = true
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_wb1ja"]
+script = ExtResource("1_qafre")
+text = "（叹气）我一定是没睡醒。"
+name = "你"
+texture = ExtResource("2_wb1ja")
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_copf1"]
+script = ExtResource("1_qafre")
+text = "是呗，这么早起来，就连咱的脑子也昏昏的呐。"
+name = "小恶魔"
+texture = ExtResource("2_wb1ja")
+show_on_left = true
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_2a105"]
+script = ExtResource("1_qafre")
+text = "幻觉吗...看来周末有必要去做个心理咨询。"
+name = "你"
+texture = ExtResource("2_wb1ja")
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_u2yiy"]
+script = ExtResource("1_qafre")
+text = "不过...怎么感觉家门口这条路的台阶比往常高了不少，奇怪。"
+name = "你"
+texture = ExtResource("2_wb1ja")
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_e5d55"]
+script = ExtResource("1_qafre")
+text = "不知道呐，不过汝要不去买点咖啡喝。"
+name = "小恶魔"
+texture = ExtResource("2_wb1ja")
+show_on_left = true
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_rmsiu"]
+script = ExtResource("1_qafre")
+text = "咱闻到了很香的咖啡味道呐，就在那边！"
+name = "小恶魔"
+texture = ExtResource("2_wb1ja")
+show_on_left = true
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_o2qcs"]
+script = ExtResource("1_qafre")
+text = "..."
+name = "你"
+texture = ExtResource("2_wb1ja")
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_1e1qs"]
+script = ExtResource("1_qafre")
+text = "也是。"
+name = "你"
+texture = ExtResource("2_wb1ja")
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[resource]
+script = ExtResource("2_s4i37")
+dialogue_group = Array[ExtResource("1_qafre")]([SubResource("Resource_qafre"), SubResource("Resource_uw5xd"), SubResource("Resource_s4i37"), SubResource("Resource_itnhv"), SubResource("Resource_wb1ja"), SubResource("Resource_copf1"), SubResource("Resource_2a105"), SubResource("Resource_u2yiy"), SubResource("Resource_e5d55"), SubResource("Resource_rmsiu"), SubResource("Resource_o2qcs"), SubResource("Resource_1e1qs")])
+metadata/_custom_type_script = "uid://ctq32uuxm8kma"

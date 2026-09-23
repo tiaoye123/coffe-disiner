@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://da720kqt0ea8p"]
+
+[ext_resource type="Script" uid="uid://bpugjiatvmrvs" path="res://scenes/自动贩卖机光源.gd" id="1_5tphk"]
+
+[sub_resource type="Gradient" id="Gradient_8yi51"]
+offsets = PackedFloat32Array(0, 0.753846)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5tphk"]
+gradient = SubResource("Gradient_8yi51")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[node name="自动贩卖机光源" type="PointLight2D"]
+color = Color(1, 0.541176, 0.207843, 1)
+texture = SubResource("GradientTexture2D_5tphk")
+script = ExtResource("1_5tphk")
+min = 1.5
+max = 1.5

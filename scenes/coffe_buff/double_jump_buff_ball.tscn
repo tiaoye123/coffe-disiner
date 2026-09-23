@@ -1,19 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://des5jcgnwiytt"]
+[gd_scene load_steps=7 format=3 uid="uid://des5jcgnwiytt"]
 
-[ext_resource type="Texture2D" uid="uid://typ6v1c3j5pg" path="res://sprite/拿铁咖啡.png" id="1_fkn4r"]
+[ext_resource type="Texture2D" uid="uid://b0be21tas8gje" path="res://sprite/拿铁咖啡球.png" id="1_fkn4r"]
+[ext_resource type="Script" uid="uid://d0xpqs2m3iflt" path="res://script/double_jump_buff_ball.gd" id="2_xhr38"]
+[ext_resource type="Texture2D" uid="uid://c4100fwuppqa8" path="res://sprite/泡泡粒子效果.png" id="3_pvm7q"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_xhr38"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_fkn4r")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="Gradient" id="Gradient_pvm7q"]
+offsets = PackedFloat32Array(0, 0.145455, 0.290909, 0.436364, 0.590909, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.878431, 1, 1, 1, 1, 1, 1, 1, 0.807843, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="DoubleJumpBuffBall" type="AnimatedSprite2D"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pvm7q"]
+gradient = SubResource("Gradient_pvm7q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pvm7q"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(14.12, 7, 1)
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+spread = 30.0
+initial_velocity_max = 5.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, -5, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_min = -6.0
+radial_accel_max = 6.0
+damping_max = 2.0
+scale_min = 0.3
+scale_max = 0.35
+color_ramp = SubResource("GradientTexture1D_pvm7q")
+
+[node name="DoubleJumpBuffBall" type="Node2D"]
 scale = Vector2(0.3, 0.3)
-sprite_frames = SubResource("SpriteFrames_xhr38")
-autoplay = "default"
+script = ExtResource("2_xhr38")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 1e-05)
+texture = ExtResource("1_fkn4r")
+
+[node name="气泡漂移粒子" type="GPUParticles2D" parent="."]
+position = Vector2(0, 3.33333)
+amount = 5
+texture = ExtResource("3_pvm7q")
+lifetime = 1.5
+explosiveness = 0.34
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pvm7q")
+
+[node name="气泡消除粒子" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+texture = ExtResource("3_pvm7q")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pvm7q")

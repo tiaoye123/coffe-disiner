@@ -13,7 +13,7 @@ var dash_input : Vector2
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animationtree_play_back = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var node_2d_2: Node2D = $"../Node2D2"
+@export var node_2d_2: Node2D
 @onready var 疯狂粒子: GPUParticles2D = $疯狂粒子
 @onready var 泪水01: GPUParticles2D = $泪水01
 @onready var 泪水02: GPUParticles2D = $泪水02
@@ -46,7 +46,9 @@ var crasy_rate : float:
 const 冲刺残影 = preload("res://scenes/冲刺残影.tscn")
 const 落地尘埃 = preload("res://scenes/落地尘埃.tscn")
 var can_double_jump : bool = false
+#玩家增益相关变量
 var player_have_double_jump : bool = false
+var player_have_super_dash : bool = false
 #玩家所拥有的增益列表
 var buff_list : Array[String]
 
@@ -60,6 +62,7 @@ var can_stop_jump : bool
 var dash_start : bool = false
 var dash_over : bool = false
 var dash_timer : float
+var super_dash_jump : bool = false
 var update_dash_timer : float:
 	set(value):
 		if update_dash_timer * value <= 0:
@@ -83,10 +86,12 @@ func _ready() -> void:
 	Global.enter_to_crasy.connect(enter_creasy)
 	Global.get_coffe_buff.connect(get_coffe)
 	Global.死亡转场结束.connect(respawn)
+	Global.第二房间开场演出准备.connect(第二房间位移)
 	global_position = start_position
 
 
 func _process(delta: float) -> void:
+	
 	
 	#向全局变量传递玩家实时位置
 	Global.player_position = global_position
@@ -145,8 +150,9 @@ func _process(delta: float) -> void:
 				jump_start = true
 				velocity.y = jump_speed
 				jump_timer = 0
-			elif Input.is_action_just_pressed("jump") and can_double_jump and player_have_double_jump and character_can_move:
+			elif (Input.is_action_just_pressed("jump") or super_dash_jump == true) and can_double_jump and player_have_double_jump and character_can_move:
 				二段跳粒子发射()
+				super_dash_jump = false
 				jump_start = true
 				velocity.y = jump_speed
 				jump_timer = 0
@@ -183,8 +189,20 @@ func _process(delta: float) -> void:
 			if dash_timer >= 0.03:
 				velocity = dash_input * dash_speed
 			if dash_timer >= 0.15:
-				dash_over = true
-				dash_shadow_button = false
+				if player_have_super_dash == false:
+					dash_over = true
+					dash_shadow_button = false
+				else:
+					if dash_timer < 0.45 and (not Input.is_action_pressed("dash") or Input.is_action_just_pressed("jump")):
+						if Input.is_action_just_pressed("jump"):
+							super_dash_jump = true
+						dash_over = true
+						dash_shadow_button = false
+					if dash_timer >= 0.45:
+						dash_over = true
+						dash_shadow_button = false
+
+
 		"角色死亡":
 			dead_timer += delta
 			if dead_timer <= 0.6:
@@ -252,16 +270,23 @@ func 增益添加(buff_name : String):
 		增益检定()
 
 
-#检定玩家增益并修改相应数值
+#检定玩家增益并修改相应变量（一坨屎写的）
 func 增益检定():
 	var double_jump : int = 0
+	var super_dash : int = 0
 	for i in buff_list:
 		if i == "二段跳":
 			double_jump += 1
+		elif i == "强化冲刺":
+			super_dash += 1
 	if double_jump >= 1:
 		player_have_double_jump = true
 	else:
 		player_have_double_jump = false
+	if super_dash >= 1:
+		player_have_super_dash = true
+	else:
+		player_have_super_dash = false
 
 
 #消除玩家触发的所有增益
@@ -293,6 +318,22 @@ func 冲刺教学演出() -> void:
 	start_dash_check = true
 
 
+#第二房间演出
+func 第二房间位移() -> void:
+	character_can_move = false
+	var move_tween = create_tween()
+	move_tween.tween_property(self , "position" , Vector2(220 , -50) , 0.3)
+	move_tween.tween_property(self , "position" , Vector2(215 , -40) , 0.3)
+	await move_tween.finished
+	第二房间开场演出()
+
+
+#第二房间开头的演出脚本
+func 第二房间开场演出() -> void:
+	character_can_move = true
+	Global.第二房间开场演出开始.emit()
+
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash") and start_dash_check:
 		time_tween.kill()
@@ -310,6 +351,7 @@ func change_start_position(value : Vector2) -> void:
 
 #角色死亡
 func dead() -> void:
+	dash_shadow_button = false
 	疯狂粒子.emitting = false
 	泪水01.emitting = false
 	泪水02.emitting = false

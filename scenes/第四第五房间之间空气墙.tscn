@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl0uja3rmw1cp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ot1io"]
+size = Vector2(3.17792, 23.5486)
+
+[node name="第四第五房间之间空气墙" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1231.32, -412.113)
+shape = SubResource("RectangleShape2D_ot1io")

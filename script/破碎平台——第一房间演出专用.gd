@@ -3,7 +3,7 @@ extends StaticBody2D
 @onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
 @onready var area_2d: Area2D = $Area2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var tile_map_layer: TileMapLayer = $TileMapLayer
 
 
 
@@ -30,7 +30,7 @@ func 平台晃动() -> void:
 
 func 平台破碎() -> void:
 	gpu_particles_2d.emitting = true
-	sprite_2d.visible = false
+	tile_map_layer.visible = false
 	collision_shape_2d.queue_free()
 	await get_tree().create_timer(0.8).timeout
 	queue_free()

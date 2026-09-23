@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3cfyit4so0w0"]
+
+[ext_resource type="Texture2D" uid="uid://cgber6kah2thm" path="res://sprite/美式.png" id="1_jagg7"]
+[ext_resource type="Script" uid="uid://bv46fvcvpuqp8" path="res://script/意式浓缩.gd" id="1_uhqcy"]
+[ext_resource type="PackedScene" uid="uid://bi268idqejwwq" path="res://scenes/爆裂弹幕.tscn" id="2_tq4ns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jagg7"]
+size = Vector2(11.9688, 12.3594)
+
+[node name="意式浓缩" type="Node2D"]
+script = ExtResource("1_uhqcy")
+"爆裂弹幕" = ExtResource("2_tq4ns")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jagg7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.0078125, 0)
+shape = SubResource("RectangleShape2D_jagg7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

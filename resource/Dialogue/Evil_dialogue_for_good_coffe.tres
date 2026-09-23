@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="Dialogue_group" load_steps=7 format=3 uid="uid://c5idgfaxm8s7i"]
+
+[ext_resource type="Script" uid="uid://bv4f4ro53gt2w" path="res://script/dialogue.gd" id="1_ix56b"]
+[ext_resource type="Script" uid="uid://ctq32uuxm8kma" path="res://script/dialogue_group.gd" id="2_crmqy"]
+
+[sub_resource type="Resource" id="Resource_ix56b"]
+script = ExtResource("1_ix56b")
+text = "很好喝的东西呐"
+name = ""
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_crmqy"]
+script = ExtResource("1_ix56b")
+text = "那股香味，是咱会喜欢的种类呐"
+name = ""
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_wmspe"]
+script = ExtResource("1_ix56b")
+text = "只要喝下就会获得这样的能力，真是便宜汝了呗"
+name = ""
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[sub_resource type="Resource" id="Resource_piolp"]
+script = ExtResource("1_ix56b")
+text = "好味道呐"
+name = ""
+show_on_left = false
+metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+
+[resource]
+script = ExtResource("2_crmqy")
+dialogue_group = Array[ExtResource("1_ix56b")]([SubResource("Resource_ix56b"), SubResource("Resource_crmqy"), SubResource("Resource_wmspe"), SubResource("Resource_piolp")])
+metadata/_custom_type_script = "uid://ctq32uuxm8kma"
