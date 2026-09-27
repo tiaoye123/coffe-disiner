@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://da720kqt0ea8p"]
 
-[ext_resource type="Script" uid="uid://bpugjiatvmrvs" path="res://scenes/自动贩卖机光源.gd" id="1_5tphk"]
+[ext_resource type="Script" uid="uid://bpugjiatvmrvs" path="res://script/自动贩卖机光源.gd" id="1_5tphk"]
 
 [sub_resource type="Gradient" id="Gradient_8yi51"]
 offsets = PackedFloat32Array(0, 0.753846)

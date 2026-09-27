@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk3mt4868l3f2"]
+
+[ext_resource type="Shader" uid="uid://bdl4ev2awrepn" path="res://shader/rain.gdshader" id="1_0a4sv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0a4sv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e5lyd"]
+seamless = true
+noise = SubResource("FastNoiseLite_0a4sv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k8lpa"]
+shader = ExtResource("1_0a4sv")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_e5lyd")
+shader_parameter/columns = 48.169
+shader_parameter/fall_speed = 1.347
+shader_parameter/slant = 4.75e-08
+shader_parameter/length_scale = 0.287
+shader_parameter/threshold_lo = 0.819
+shader_parameter/threshold_hi = 0.937
+shader_parameter/near_alpha = 0.142
+shader_parameter/far_alpha = 0.088
+shader_parameter/rain_tint = Color(0.783493, 0.848318, 0.913076, 1)
+
+[node name="雨滴" type="ColorRect"]
+material = SubResource("ShaderMaterial_k8lpa")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

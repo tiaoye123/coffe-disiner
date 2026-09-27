@@ -1,12 +1,12 @@
 extends Node2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@export var HP : int = 4:
+@export var HP : int = 5:
 	set(value):
 		HP = value
 		if HP == 0:
 			delete_self()
-@export var a : float = 40
+@export var a : float = 35
 var player : Node2D
 @onready var 受伤动画: AnimationPlayer = $受伤动画
 var velocity : Vector2 = Vector2(1 , 1)

@@ -50,7 +50,7 @@ func spawn() -> void:
 	var a = coffe.instantiate()
 	add_child(a)
 	a.position = Vector2(0 , 22)
-	a.scale = Vector2(0.6 , 0.6)
+	a.scale = Vector2(0.8 , 0.8)
 	a.owner = self
 	时间计量条.visible = false
 	is_in_spawn = false

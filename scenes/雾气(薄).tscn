@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://mtdnvlc4qxcg"]
+
+[ext_resource type="Shader" uid="uid://wkgoepoysbdr" path="res://shader/static_mist.gdshader" id="1_1ky5u"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1ky5u"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fwlkn"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_1ky5u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gievr"]
+shader = ExtResource("1_1ky5u")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_fwlkn")
+shader_parameter/base_fog = 0.091
+shader_parameter/density = 0.415
+shader_parameter/noise_scale = 1.0
+shader_parameter/edge_start = 0.237
+shader_parameter/edge_end = 0.916
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/tint = Color(0.7, 0.75, 0.8, 1)
+
+[node name="雾气(薄)" type="ColorRect"]
+material = SubResource("ShaderMaterial_gievr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

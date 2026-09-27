@@ -15,6 +15,8 @@ signal 取得含糖咖啡()
 signal 玩家死亡转场()
 signal 死亡转场结束()
 signal 玩家进入boss场地()
+signal 玩家进入关门战场地()
+signal 关门战结束()
 
 #玩家位置
 var player_position : Vector2

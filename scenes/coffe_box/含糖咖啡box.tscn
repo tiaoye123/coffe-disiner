@@ -8,4 +8,3 @@ script = ExtResource("1_prx38")
 coffe = ExtResource("2_x164n")
 
 [node name="含糖咖啡" parent="." instance=ExtResource("2_x164n")]
-scale = Vector2(0.4, 0.4)

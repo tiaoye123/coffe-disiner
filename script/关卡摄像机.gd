@@ -48,6 +48,18 @@ const 第五房间limit_right : float = 1491
 const 第五房间limit_button : float = -28
 const 第四第五房间之间空气墙 = preload("res://scenes/第四第五房间之间空气墙.tscn")
 const player_start_position_in_fifth_room : Vector2 = Vector2(1440 , -360)
+#第六房间
+@onready var 切房判定05: Area2D = $"../切房判定组/切房判定05"
+const 第六房间limit_left : float = -1000000
+const 第六房间limit_top : float = -1000000
+const 第六房间limit_right : float = 10000000
+const 第六房间limit_button : float = 10000000
+const player_start_position_in_sixth_room : Vector2 = Vector2(1522 , -38)
+
+
+
+
+
 
 
 func _ready() -> void:
@@ -156,6 +168,7 @@ func _on_切房判定03_body_entered(body: Node2D) -> void:
 #04-05
 func _on_切房判定04_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		player_is_in_third_room = false
 		切房判定04.queue_free()
 		var a = 第四第五房间之间空气墙.instantiate()
 		body.change_start_position(player_start_position_in_fifth_room)
@@ -165,6 +178,19 @@ func _on_切房判定04_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(1.0).timeout
 		Global.player_can_move = true
 		player_follow = true
+
+
+func _on_切房判定05_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		切房判定05.queue_free()
+		change_camera_limit(第六房间limit_left , 第六房间limit_right , 第六房间limit_top , 第六房间limit_button)
+		body.change_start_position(player_start_position_in_sixth_room)
+		player_follow = false
+		global_position = Vector2(1629 , -101)
+		Global.player_can_move = false
+		await get_tree().create_timer(1.0).timeout
+		Global.player_can_move = true
+		Global.玩家进入关门战场地.emit()
 
 
 func 死亡重置判定() -> void:

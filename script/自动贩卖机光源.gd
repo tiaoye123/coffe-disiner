@@ -15,3 +15,7 @@ func 闪烁():
 	flash_tween.tween_property(self , "energy" , max , 1.0)
 	await flash_tween.finished
 	闪烁()
+
+
+func came(body: Node2D) -> void:
+	pass # Replace with function body.

@@ -46,7 +46,7 @@ _data = {
 }
 
 [node name="含糖咖啡" type="Node2D" groups=["coffe"]]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_wthc0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

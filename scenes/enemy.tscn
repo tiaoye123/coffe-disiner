@@ -157,7 +157,7 @@ position = Vector2(-0.0912892, -1.86265e-09)
 shape = SubResource("CapsuleShape2D_5uy6h")
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
-scale = Vector2(1.71376, 1.58169)
+scale = Vector2(2.84926, 2.46148)
 texture = SubResource("GradientTexture2D_5uy6h")
 
 [node name="受伤动画" type="AnimationPlayer" parent="."]

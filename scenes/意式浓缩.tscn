@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jagg7"]
 size = Vector2(11.9688, 12.3594)
 
-[node name="意式浓缩" type="Node2D"]
+[node name="意式浓缩" type="Node2D" groups=["coffe"]]
 script = ExtResource("1_uhqcy")
 "爆裂弹幕" = ExtResource("2_tq4ns")
 
