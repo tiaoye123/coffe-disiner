@@ -713,6 +713,7 @@ script = ExtResource("1_v6fml")
 jump_speed = -165.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1.5, 1.5, 1.5, 1)
 position = Vector2(2, -2)
 texture = ExtResource("2_v6fml")
 flip_h = true

@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://0te7c5nrp5ck"]
+
+[ext_resource type="Texture2D" uid="uid://ckhdqjrqw12cs" path="res://icon.svg" id="1_dlmty"]
+[ext_resource type="Script" uid="uid://dtnb62vrkgumg" path="res://script/boss.gd" id="1_neq0i"]
+[ext_resource type="Script" uid="uid://d2jtf7mdbg8ur" path="res://script/boss_leg.gd" id="3_jncid"]
+
+[node name="boss" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_neq0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+scale = Vector2(0.385148, 0.35062)
+texture = ExtResource("1_dlmty")
+
+[node name="ColorRect2" type="ColorRect" parent="Sprite2D"]
+offset_left = -28.2941
+offset_top = -17.1691
+offset_right = -13.2941
+offset_bottom = -1.16909
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Sprite2D"]
+offset_left = 11.8078
+offset_top = -18.1108
+offset_right = 26.8078
+offset_bottom = -2.11079
+color = Color(1, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" parent="."]
+top_level = true
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+scale = Vector2(0.5, 0.5)
+points = PackedVector2Array(0, 0, 19.1075, -40.243, 38.215, -36.0415, 57.3225, 12.6044)
+default_color = Color(0, 0, 0, 1)
+script = ExtResource("3_jncid")
+"初始位置" = Vector2(77, 17)
+clamp = 45.0
+
+[node name="Line2D2" type="Line2D" parent="."]
+top_level = true
+scale = Vector2(0.5, 0.5)
+points = PackedVector2Array(0, 0, 23.0559, -51.3826, 46.1117, -58.3207, 69.1676, -20.8144)
+default_color = Color(0, 0, 0, 1)
+script = ExtResource("3_jncid")
+"初始位置" = Vector2(93, -28)
+
+[node name="Line2D3" type="Line2D" parent="."]
+top_level = true
+scale = Vector2(0.5, 0.5)
+points = PackedVector2Array(0, 0, 22.0849, -45.4517, 44.1698, -46.459, 66.2548, -3.02182)
+default_color = Color(0, 0, 0, 1)
+script = ExtResource("3_jncid")
+"初始位置" = Vector2(89, -4)
+clamp = 50.0
+
+[node name="Line2D4" type="Line2D" parent="."]
+top_level = true
+scale = Vector2(0.5, 0.5)
+points = PackedVector2Array(0, 0, -19.279, -45.8635, -38.5579, -47.2825, -57.8369, -4.25715)
+default_color = Color(0, 0, 0, 1)
+script = ExtResource("3_jncid")
+"初始位置" = Vector2(-83, -6)
+
+[node name="Line2D5" type="Line2D" parent="."]
+top_level = true
+scale = Vector2(0.5, 0.5)
+points = PackedVector2Array(0, 0, -19.3279, -40.739, -38.6557, -37.0336, -57.9836, 11.1163)
+default_color = Color(0, 0, 0, 1)
+script = ExtResource("3_jncid")
+"初始位置" = Vector2(-78, 15)
+clamp = 45.0
+
+[node name="Line2D6" type="Line2D" parent="."]
+top_level = true
+scale = Vector2(0.5, 0.5)
+points = PackedVector2Array(0, 0, -24.1258, -53.0547, -48.2516, -61.6649, -72.3773, -25.8308)
+default_color = Color(0, 0, 0, 1)
+script = ExtResource("3_jncid")
+"初始位置" = Vector2(-87, -31)
+clamp = 50.0

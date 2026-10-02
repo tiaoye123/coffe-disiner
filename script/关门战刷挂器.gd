@@ -5,6 +5,7 @@ var search_enemy : bool = false
 var player_is_in : bool = false
 var 刷怪组 : String = "0"
 var enemy_index : int = 0
+var is_over : bool = false
 @export var 第一波enemy_01_position : Vector2
 @export var 第二波enemy_01_position : Vector2
 @export var 第二波enemy_02_position : Vector2
@@ -36,8 +37,10 @@ func _physics_process(delta: float) -> void:
 
 
 func 死亡重置():
-	刷怪组 = "0"
-	第一波次刷怪()
+	if not is_over:
+		刷怪组 = "0"
+		Global.关门战重置.emit()
+		第一波次刷怪()
 
 
 func 玩家进入() -> void:
@@ -70,6 +73,8 @@ func 第一波次刷怪() -> void:
 
 func 第二波次刷怪() -> void:
 	search_enemy = false
+	await get_tree().create_timer(1.0).timeout
+	Global.第一波结束.emit()
 	await get_tree().create_timer(刷怪间隔).timeout
 	刷怪(第二波enemis)
 	刷怪组 = "第三组"
@@ -77,6 +82,8 @@ func 第二波次刷怪() -> void:
 
 func 第三波次刷怪() -> void:
 	search_enemy = false
+	await get_tree().create_timer(1.0).timeout
+	Global.第二波结束.emit()
 	await get_tree().create_timer(刷怪间隔).timeout
 	刷怪(第三波enemis)
 	刷怪组 = "通关"
@@ -84,7 +91,10 @@ func 第三波次刷怪() -> void:
 
 
 func 关门战通过() -> void:
+	search_enemy = false
+	await get_tree().create_timer(1.0).timeout
 	Global.关门战结束.emit()
+	is_over = true
 
 
 func 刷怪(a : Array) -> void:

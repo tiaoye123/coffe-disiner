@@ -12,8 +12,8 @@ noise = SubResource("FastNoiseLite_1ky5u")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gievr"]
 shader = ExtResource("1_1ky5u")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_fwlkn")
-shader_parameter/base_fog = 0.091
-shader_parameter/density = 0.415
+shader_parameter/base_fog = 0.021
+shader_parameter/density = 0.0
 shader_parameter/noise_scale = 1.0
 shader_parameter/edge_start = 0.237
 shader_parameter/edge_end = 0.916

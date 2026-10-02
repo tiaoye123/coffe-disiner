@@ -32,7 +32,7 @@ color_ramp = SubResource("GradientTexture1D_4ra3w")
 
 [node name="受伤粒子" type="GPUParticles2D"]
 emitting = false
-amount = 2
+amount = 6
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_md0e3")

@@ -17,6 +17,9 @@ signal 死亡转场结束()
 signal 玩家进入boss场地()
 signal 玩家进入关门战场地()
 signal 关门战结束()
+signal 关门战重置()
+signal 第一波结束()
+signal 第二波结束()
 
 #玩家位置
 var player_position : Vector2

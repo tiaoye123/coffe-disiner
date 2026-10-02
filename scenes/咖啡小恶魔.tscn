@@ -1,33 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://co1ajblwju8lj"]
+[gd_scene load_steps=6 format=3 uid="uid://co1ajblwju8lj"]
 
 [ext_resource type="Script" uid="uid://daxdygfuqpquo" path="res://script/咖啡小恶魔.gd" id="1_2sk6w"]
 [ext_resource type="Texture2D" uid="uid://ckhdqjrqw12cs" path="res://icon.svg" id="1_xyiuc"]
+[ext_resource type="Texture2D" uid="uid://cqdqmiskcheor" path="res://sprite/小恶魔.png" id="3_m6qw6"]
 [ext_resource type="FontFile" uid="uid://dylhnhd036qvf" path="res://sprite/PixelOperator8.ttf" id="3_ugd53"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugd53"]
 size = Vector2(33.5462, 18.847)
 
 [node name="咖啡小恶魔" type="CharacterBody2D"]
+modulate = Color(2.5, 1.5, 1.5, 1)
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("1_2sk6w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("1_xyiuc")
 
-[node name="Label" type="Label" parent="Sprite2D"]
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("3_m6qw6")
+region_enabled = true
+region_rect = Rect2(-0.660793, 0.908443, 16.2011, 25.0266)
+
+[node name="Label" type="Label" parent="Sprite2D2"]
+modulate = Color(2, 2, 2, 1)
 anchors_preset = -1
-anchor_left = -5.59858
-anchor_top = -0.109056
-anchor_right = 5.59673
-anchor_bottom = 0.0940695
-offset_left = -15.3819
-offset_top = -132.774
-offset_right = 24.6181
-offset_bottom = -77.7741
+anchor_left = 0.5
+anchor_top = -0.34
+anchor_right = 0.5
+anchor_bottom = -0.34
+offset_left = -104.146
+offset_top = -23.7482
+offset_right = 95.854
+offset_bottom = 2.25183
 theme_override_fonts/font = ExtResource("3_ugd53")
-theme_override_font_sizes/font_size = 61
+theme_override_font_sizes/font_size = 10
 text = "很好喝的东西呐"
 horizontal_alignment = 1
 vertical_alignment = 1

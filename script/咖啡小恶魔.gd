@@ -5,7 +5,9 @@ var speed : Vector2
 
 const EVIL_DIALOGUE_FOR_BAD = preload("res://resource/Dialogue/Evil_dialogue_for_bad.tres")
 const EVIL_DIALOGUE_FOR_GOOD_COFFE = preload("res://resource/Dialogue/Evil_dialogue_for_good_coffe.tres")
-@onready var label: Label = $Sprite2D/Label
+@onready var label: Label = $Sprite2D2/Label
+@onready var sprite_2d_2: Sprite2D = $Sprite2D2
+
 
 var 输出阻断 : int = 0
 
@@ -72,6 +74,10 @@ func _process(delta: float) -> void:
 	计算当前速度()
 	
 	velocity = speed * 1.5
+	if velocity.x > 0:
+		sprite_2d_2.flip_h = false
+	elif velocity.x < 0:
+		sprite_2d_2.flip_h = true
 	move_and_slide()
 
 
