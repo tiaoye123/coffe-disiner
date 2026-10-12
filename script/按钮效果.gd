@@ -5,7 +5,7 @@ extends Node2D
 
 
 func _on_退出_pressed() -> void:
-	get_tree().quit()
+	Global.确认退出菜单.emit()
 
 
 func _on_开始_button_down() -> void:

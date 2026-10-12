@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="coffe"
-run/main_scene="uid://dqe0sypktmh4u"
+run/main_scene="uid://b33wpegyma3ab"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=240
 config/icon="res://icon.svg"
@@ -24,7 +24,7 @@ Global="*res://script/Global.gd"
 
 window/size/viewport_width=256
 window/size/viewport_height=144
-window/size/mode=2
+window/size/mode=4
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 

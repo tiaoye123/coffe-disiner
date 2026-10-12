@@ -20,6 +20,7 @@ signal 关门战结束()
 signal 关门战重置()
 signal 第一波结束()
 signal 第二波结束()
+signal 确认退出菜单()
 
 #玩家位置
 var player_position : Vector2

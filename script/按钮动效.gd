@@ -19,7 +19,8 @@ func _physics_process(delta: float) -> void:
 
 
 func 悬停动效() -> void:
-	label_out()
+	if label:
+		label_out()
 	if shake_tween and shake_tween.is_running():
 		shake_tween.kill()
 	shake_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
@@ -47,13 +48,13 @@ func  label_out() -> void:
 
 
 func 退出悬停() -> void:
-	label_back()
+	if label:
+		label_back()
 	if shake_tween and shake_tween.is_running():
 		shake_tween.kill()
 		rotation_degrees = 0
 	var T_x =  (scale.x - 1.0 ) / ((scale_target - 1) / 0.2)
 	var T_y =  (scale.y - 1.0 ) / ((scale_target - 1) / 0.2)
-	print(T_x)
 	shake_tween = create_tween()
 	shake_tween.tween_property(self , "scale:x" , 1.0 , T_y)
 	shake_tween.parallel().tween_property(self , "scale:y" , 1.0 , T_y)
