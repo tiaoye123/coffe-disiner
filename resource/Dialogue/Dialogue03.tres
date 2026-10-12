@@ -1,18 +1,12 @@
-[gd_resource type="Resource" script_class="Dialogue_group" load_steps=17 format=3 uid="uid://c18l2taws02bh"]
+[gd_resource type="Resource" script_class="Dialogue_group" load_steps=14 format=3 uid="uid://c18l2taws02bh"]
 
 [ext_resource type="Script" uid="uid://bv4f4ro53gt2w" path="res://script/dialogue.gd" id="1_6kon1"]
 [ext_resource type="Script" uid="uid://ctq32uuxm8kma" path="res://script/dialogue_group.gd" id="2_jvj8y"]
+[ext_resource type="Texture2D" uid="uid://b21664fraidx3" path="res://sprite/小恶魔_flip.png" id="3_m6qw6"]
 
 [sub_resource type="Resource" id="Resource_6kon1"]
 script = ExtResource("1_6kon1")
 text = "嗯，感觉精神了不少。"
-name = "你"
-show_on_left = false
-metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
-
-[sub_resource type="Resource" id="Resource_jvj8y"]
-script = ExtResource("1_6kon1")
-text = "早起果然还是得喝杯咖啡啊。"
 name = "你"
 show_on_left = false
 metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
@@ -24,85 +18,65 @@ name = "你"
 show_on_left = false
 metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
 
-[sub_resource type="Resource" id="Resource_alkch"]
-script = ExtResource("1_6kon1")
-text = "有种我能在空中跳两次的错觉。"
-name = "你"
-show_on_left = false
-metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
+[sub_resource type="AtlasTexture" id="AtlasTexture_devil"]
+atlas = ExtResource("3_m6qw6")
+region = Rect2(0, 0, 16, 25)
 
 [sub_resource type="Resource" id="Resource_qnd15"]
 script = ExtResource("1_6kon1")
-text = "汝啊，那可不是错觉哦~"
+text = "汝啊，那可不是错觉~"
 name = "小恶魔"
-show_on_left = true
+texture = SubResource("AtlasTexture_devil")
+show_on_left = false
 metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
 
 [sub_resource type="Resource" id="Resource_6kf1g"]
 script = ExtResource("1_6kon1")
-text = "誓约已成，现在汝获得了咖啡恶魔——也就是咱的权能，喝下咖啡就能获得对应的能力呐。"
+text = "誓约已成，现在汝获得了咖啡恶魔——也就是咱的权能，喝下咖啡就能获得对应的能力。"
 name = "小恶魔"
-show_on_left = true
+texture = SubResource("AtlasTexture_devil")
+show_on_left = false
 metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
 
 [sub_resource type="Resource" id="Resource_s2u52"]
 script = ExtResource("1_6kon1")
-text = "至于与咱交易的代价...汝会对咖啡产生严重的依赖症状，也就是离开了咖啡就没法活下去..."
+text = "至于代价嘛...汝会对咖啡产生严重的依赖症状。也就是说，离开了咖啡就没法活下去..."
 name = "小恶魔"
-show_on_left = true
+texture = SubResource("AtlasTexture_devil")
+show_on_left = false
 metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
 
 [sub_resource type="Resource" id="Resource_3hv1k"]
 script = ExtResource("1_6kon1")
-text = "等等，什么契约，而且我什么时候同意签订这种东西的？"
+text = "...?"
 name = "你"
 show_on_left = false
 metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
 
 [sub_resource type="Resource" id="Resource_nops2"]
 script = ExtResource("1_6kon1")
-text = "就在刚刚喝下咖啡的那一瞬间呗。"
+text = "汝看起来完全没能理解现状呐。无妨，待会汝就知道了。而且现在对汝来讲更重要的是去上班呗。"
 name = "小恶魔"
-show_on_left = true
+texture = SubResource("AtlasTexture_devil")
+show_on_left = false
 metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
 
-[sub_resource type="Resource" id="Resource_1k1aw"]
+[sub_resource type="Resource" id="Resource_jvj8y"]
 script = ExtResource("1_6kon1")
-text = "往好处想想，至少汝现在拥有咱的权能了，不再是一个普通人类了呐。"
-name = "小恶魔"
-show_on_left = true
-metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
-
-[sub_resource type="Resource" id="Resource_dvxa0"]
-script = ExtResource("1_6kon1")
-text = "这家伙到底在说什么啊...完全搞不懂。"
+text = "也是，全勤要紧。"
 name = "你"
 show_on_left = false
 metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
 
-[sub_resource type="Resource" id="Resource_snlk5"]
+[sub_resource type="Resource" id="Resource_alkch"]
 script = ExtResource("1_6kon1")
-text = "汝看起来完全没理解现状啊。不过也无妨，在咱看来现在去上班更要紧一点，毕竟马上迟到了是呗。"
+text = "呼呼~"
 name = "小恶魔"
-show_on_left = true
-metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
-
-[sub_resource type="Resource" id="Resource_hkhwy"]
-script = ExtResource("1_6kon1")
-text = "...也是，全勤要紧。"
-name = "你"
+texture = SubResource("AtlasTexture_devil")
 show_on_left = false
-metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
-
-[sub_resource type="Resource" id="Resource_t0an0"]
-script = ExtResource("1_6kon1")
-text = "哼哼...这才对嘛
-"
-name = "小恶魔"
-show_on_left = true
 metadata/_custom_type_script = "uid://bv4f4ro53gt2w"
 
 [resource]
 script = ExtResource("2_jvj8y")
-dialogue_group = Array[ExtResource("1_6kon1")]([SubResource("Resource_6kon1"), SubResource("Resource_jvj8y"), SubResource("Resource_aie1e"), SubResource("Resource_alkch"), SubResource("Resource_qnd15"), SubResource("Resource_6kf1g"), SubResource("Resource_s2u52"), SubResource("Resource_3hv1k"), SubResource("Resource_nops2"), SubResource("Resource_1k1aw"), SubResource("Resource_dvxa0"), SubResource("Resource_snlk5"), SubResource("Resource_hkhwy"), SubResource("Resource_t0an0")])
+dialogue_group = Array[ExtResource("1_6kon1")]([SubResource("Resource_6kon1"), SubResource("Resource_aie1e"), SubResource("Resource_qnd15"), SubResource("Resource_6kf1g"), SubResource("Resource_s2u52"), SubResource("Resource_3hv1k"), SubResource("Resource_nops2"), SubResource("Resource_jvj8y"), SubResource("Resource_alkch")])
 metadata/_custom_type_script = "uid://ctq32uuxm8kma"

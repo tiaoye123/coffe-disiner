@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://p8gca77hq8tp"]
+[gd_scene load_steps=6 format=3 uid="uid://p8gca77hq8tp"]
 
 [ext_resource type="Script" uid="uid://cwowcqhqxevd5" path="res://script/dialogue_ui.gd" id="1_6q285"]
 [ext_resource type="Script" uid="uid://bv4f4ro53gt2w" path="res://script/dialogue.gd" id="2_jx1sv"]
 [ext_resource type="Script" uid="uid://ctq32uuxm8kma" path="res://script/dialogue_group.gd" id="3_e6usr"]
+[ext_resource type="Theme" uid="uid://nhw45vv13p6p" path="res://Theme/主菜单.tres" id="4_e6usr"]
 
 [sub_resource type="Resource" id="Resource_imsod"]
 script = ExtResource("3_e6usr")
@@ -46,8 +47,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
@@ -57,13 +58,15 @@ layout_mode = 2
 [node name="the_name" type="Label" parent="HBoxContainer/对话框/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme = ExtResource("4_e6usr")
+theme_override_font_sizes/font_size = 8
 text = "name"
 autowrap_mode = 3
 
 [node name="text" type="Label" parent="HBoxContainer/对话框/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
+theme = ExtResource("4_e6usr")
 theme_override_font_sizes/font_size = 6
 text = "text"
 autowrap_mode = 3

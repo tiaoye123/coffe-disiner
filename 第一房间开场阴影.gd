@@ -1,6 +1,7 @@
 extends ColorRect
 
 @onready var shader_mat = material as ShaderMaterial
+@onready var player: CharacterBody2D = $"../../Player"
 
 #遮罩中心点
 var center_position : Vector2 = Vector2(56 , 105)
@@ -14,9 +15,12 @@ func _ready() -> void:
 #后续打算把开场动画做成两段，先预留一下函数以后再说
 func first_animation() -> void:
 	Global.player_can_move = false
+	await get_tree().create_timer(0.5).timeout
 	var zoom_tween = create_tween()
-	zoom_tween.tween_method(set_radius , 0.0 , 0.2 , 0.35)
-	zoom_tween.tween_method(set_radius , 0.2 , 0.2 , 0.05)
+	zoom_tween.tween_method(set_radius , 0.0 , 0.21 , 0.3)
+	zoom_tween.tween_method(set_radius , 0.21 , 0.2 , 0.08)
+	zoom_tween.tween_property(player, "global_position" , Vector2(56 , 106) , 0.7 )
+	zoom_tween.tween_property(player, "global_position" , Vector2(56 , 106) , 0.3 )
 	await zoom_tween.finished
 	second_animation()
 

@@ -1,0 +1,218 @@
+[gd_scene load_steps=8 format=3 uid="uid://b33wpegyma3ab"]
+
+[ext_resource type="Script" uid="uid://ctt32la2jgnom" path="res://script/按钮效果.gd" id="1_56csj"]
+[ext_resource type="Texture2D" uid="uid://dnn0121eooalj" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/previews/tiny_menu_panels_contact_sheet.png" id="1_d5kmq"]
+[ext_resource type="Texture2D" uid="uid://bhemhh72aco62" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/exports/panels/slate/inventory_panel_slate.png" id="2_d5kmq"]
+[ext_resource type="Texture2D" uid="uid://cepiqjo1c12it" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/previews/tiny_menu_panels_cover.png" id="3_g8nyb"]
+[ext_resource type="Theme" uid="uid://nhw45vv13p6p" path="res://Theme/主菜单.tres" id="3_ie54b"]
+[ext_resource type="Script" uid="uid://ch8exiyqujw7c" path="res://script/按钮动效.gd" id="4_bqayw"]
+[ext_resource type="Texture2D" uid="uid://dyih0xgjg1cla" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/previews/tiny_menu_panels_menu_mockup.png" id="5_k0lpx"]
+
+[node name="主菜单" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="按钮效果" type="Node2D" parent="."]
+script = ExtResource("1_56csj")
+
+[node name="TinyMenuPanelsContactSheet" type="Sprite2D" parent="."]
+position = Vector2(-2507, -630)
+texture = ExtResource("1_d5kmq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.85696, 0.940125, 0.995413, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -4.0
+offset_right = -15.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_d5kmq")
+region_rect = Rect2(0, 0, 256, 192)
+
+[node name="ColorRect" type="ColorRect" parent="NinePatchRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.94209, 0.96827, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="NinePatchRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.878431, 0.94902, 0.996078, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="NinePatchRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.878431, 0.94902, 0.996078, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 43.0
+offset_top = -16.0
+offset_right = 83.0
+offset_bottom = 28.0
+grow_vertical = 2
+
+[node name="开始" type="Button" parent="NinePatchRect/VBoxContainer" node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(0, 11)
+layout_mode = 2
+theme = ExtResource("3_ie54b")
+theme_override_font_sizes/font_size = 6
+script = ExtResource("4_bqayw")
+label = NodePath("../../开始2")
+
+[node name="设置" type="Button" parent="NinePatchRect/VBoxContainer" node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(0, 11)
+layout_mode = 2
+theme = ExtResource("3_ie54b")
+script = ExtResource("4_bqayw")
+label = NodePath("../../设置2")
+
+[node name="退出" type="Button" parent="NinePatchRect/VBoxContainer" node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(0, 11)
+layout_mode = 2
+theme = ExtResource("3_ie54b")
+script = ExtResource("4_bqayw")
+label = NodePath("../../退出2")
+
+[node name="开始2" type="Label" parent="NinePatchRect"]
+z_index = -1
+custom_minimum_size = Vector2(0, 1.04)
+layout_mode = 2
+offset_left = 47.0
+offset_top = 19.0
+offset_right = 75.0
+offset_bottom = 27.0
+size_flags_horizontal = 4
+theme = ExtResource("3_ie54b")
+theme_override_colors/font_color = Color(0.0730562, 0.459249, 0.699727, 1)
+theme_override_colors/font_outline_color = Color(0.583716, 0.807733, 0.98972, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 7
+text = "开始游戏"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="设置2" type="Label" parent="NinePatchRect"]
+z_index = -1
+custom_minimum_size = Vector2(0, 1.04)
+layout_mode = 2
+offset_left = 47.0
+offset_top = 34.0
+offset_right = 75.0
+offset_bottom = 42.0
+size_flags_horizontal = 4
+theme = ExtResource("3_ie54b")
+theme_override_colors/font_color = Color(0.0730562, 0.459249, 0.699727, 1)
+theme_override_colors/font_outline_color = Color(0.583716, 0.807733, 0.98972, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 7
+text = "设置"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="退出2" type="Label" parent="NinePatchRect"]
+z_index = -1
+custom_minimum_size = Vector2(0, 1.04)
+layout_mode = 2
+offset_left = 47.0
+offset_top = 49.0
+offset_right = 75.0
+offset_bottom = 57.0
+size_flags_horizontal = 4
+theme = ExtResource("3_ie54b")
+theme_override_colors/font_color = Color(0.783709, 0.145909, 0.208955, 1)
+theme_override_colors/font_outline_color = Color(0.987758, 0.637546, 0.621704, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 7
+text = "退出游戏"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TinyMenuPanelsCover" type="Sprite2D" parent="."]
+position = Vector2(-2310, -509)
+texture = ExtResource("3_g8nyb")
+
+[node name="TinyMenuPanelsMenuMockup" type="Sprite2D" parent="."]
+position = Vector2(-3967, -448)
+texture = ExtResource("5_k0lpx")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.0
+offset_top = 15.0
+offset_right = 70.0
+offset_bottom = 38.0
+grow_horizontal = 2
+theme = ExtResource("3_ie54b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "咖啡重度依赖症"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 144.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -145.0
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="button_down" from="NinePatchRect/VBoxContainer/开始" to="按钮效果" method="_on_开始_button_down"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/退出" to="按钮效果" method="_on_退出_pressed"]

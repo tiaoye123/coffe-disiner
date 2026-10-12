@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://w2tbijpr5r1b"
+
+[deps]
+
+files=["res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/metadata/file-index.file.translation", "res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/metadata/file-index.size.translation"]
+
+source_file="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/metadata/file-index.csv"
+dest_files=["res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/metadata/file-index.file.translation", "res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/metadata/file-index.size.translation"]
+
+[params]
+
+compress=true
+delimiter=0

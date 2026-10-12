@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://nhw45vv13p6p"]
+
+[ext_resource type="Texture2D" uid="uid://64p1fdtq4417" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/exports/buttons/slate/button_slate_144_normal.png" id="1_2srsb"]
+[ext_resource type="FontFile" uid="uid://ca7fjp1bfwg6h" path="res://unifont-17.0.05.otf" id="1_qkjpv"]
+[ext_resource type="Texture2D" uid="uid://ctreln0yf8fxj" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/exports/buttons/slate/button_slate_144_hover.png" id="1_sqng6"]
+[ext_resource type="Texture2D" uid="uid://c0njfd8i08o7p" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/exports/buttons/slate/button_slate_144_pressed.png" id="3_qkjpv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2srsb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u4lwu"]
+texture = ExtResource("1_sqng6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g8nyb"]
+texture = ExtResource("1_2srsb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i36hm"]
+texture = ExtResource("3_qkjpv")
+
+[resource]
+Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("1_qkjpv")
+Button/styles/focus = SubResource("StyleBoxEmpty_2srsb")
+Button/styles/hover = SubResource("StyleBoxTexture_u4lwu")
+Button/styles/normal = SubResource("StyleBoxTexture_g8nyb")
+Button/styles/pressed = SubResource("StyleBoxTexture_i36hm")
+Label/fonts/font = ExtResource("1_qkjpv")

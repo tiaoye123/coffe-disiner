@@ -23,7 +23,7 @@ var 落地尘埃开关 : bool = true
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
-var start_position = Vector2(56 , 105)
+var start_position = Vector2(56 , 106)
 
 
 #随着状态减少改变角色粒子效果的数量
@@ -88,6 +88,7 @@ func _ready() -> void:
 	Global.死亡转场结束.connect(respawn)
 	Global.第二房间开场演出准备.connect(第二房间位移)
 	global_position = start_position
+	global_position.x = start_position.x - 40
 
 
 func _process(delta: float) -> void:
