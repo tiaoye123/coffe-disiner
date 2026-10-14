@@ -55,6 +55,7 @@ func speak(whitch_dialogue : Dialogue) -> void:
 	#打断当前进行中的对话
 	if show_tweem and show_tweem.is_running():
 		show_tweem.kill()
+		label.text = ""
 	#将当前对话输出
 	label.text += whitch_dialogue.text
 	var time : float = len(label.text) * 0.05

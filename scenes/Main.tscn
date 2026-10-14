@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://dqe0sypktmh4u"]
+[gd_scene load_steps=76 format=4 uid="uid://dqe0sypktmh4u"]
 
 [ext_resource type="Texture2D" uid="uid://d2ldu2dl87urr" path="res://sprite/Ephemeral/Ephemeral_0.png" id="1_2c4at"]
 [ext_resource type="Script" uid="uid://du4744nf3e6yy" path="res://script/buff_ball_box.gd" id="1_c01mt"]
@@ -66,6 +66,9 @@ size = Vector2(97.2614, 4.87347)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cmqll"]
 distance = 14.4081
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gny2"]
+size = Vector2(279.131, 26.1358)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlsqs"]
 texture = ExtResource("1_jlsqs")
@@ -2238,6 +2241,24 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(8.1754, 1.30807)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_cmqll")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="瓦片地图组"]
+position = Vector2(1, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="瓦片地图组/StaticBody2D3"]
+position = Vector2(8.1754, 1.30807)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_cmqll")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="瓦片地图组"]
+position = Vector2(1, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="瓦片地图组/StaticBody2D4"]
+position = Vector2(554.515, 89.7357)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_8gny2")
 
 [node name="瓦片地图" type="TileMapLayer" parent="瓦片地图组"]
 position = Vector2(1, 0)

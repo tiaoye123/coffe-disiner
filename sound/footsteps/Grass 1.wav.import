@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://behrwis02db4"
+path="res://.godot/imported/Grass 1.wav-eb5d5886415ea123da8534424148e284.sample"
+
+[deps]
+
+source_file="res://sound/footsteps/Grass 1.wav"
+dest_files=["res://.godot/imported/Grass 1.wav-eb5d5886415ea123da8534424148e284.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

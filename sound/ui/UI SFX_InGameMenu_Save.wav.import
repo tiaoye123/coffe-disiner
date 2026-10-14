@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bypew03uan4du"
+path="res://.godot/imported/UI SFX_InGameMenu_Save.wav-7021d699a8dbe8f128de3ac6e8114371.sample"
+
+[deps]
+
+source_file="res://sound/ui/UI SFX_InGameMenu_Save.wav"
+dest_files=["res://.godot/imported/UI SFX_InGameMenu_Save.wav-7021d699a8dbe8f128de3ac6e8114371.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

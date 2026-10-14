@@ -23,6 +23,8 @@ var 落地尘埃开关 : bool = true
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
+
+
 var start_position = Vector2(56 , 106)
 
 
@@ -79,6 +81,16 @@ var is_player_get_dash : bool = false
 var start_dash_check : bool = false
 var time_tween : Tween
 
+#音效
+var sound_index : float
+var floot_check : bool = true
+@onready var 走路音效1: AudioStreamPlayer2D = $音效/走路音效1
+@onready var 走路音效2: AudioStreamPlayer2D = $音效/走路音效2
+@onready var 落地音效: AudioStreamPlayer2D = $音效/落地音效
+
+
+
+
 func _ready() -> void:
 	冲刺残影检定()
 	Global.get_coffe_buff.connect(增益添加)
@@ -90,9 +102,25 @@ func _ready() -> void:
 	global_position = start_position
 	global_position.x = start_position.x - 40
 
-
 func _process(delta: float) -> void:
 	
+	#走路音效
+	if velocity.length() == 0 or not is_on_floor():
+		sound_index = 0
+	else:
+		sound_index += delta
+		if sound_index >= 0.20:
+			var i = [0 , 1].pick_random()
+			match i:
+				1:
+					走路音效1.play()
+				0:
+					走路音效2.play()
+			sound_index = 0
+	#检测并播放落地音效
+	if not floot_check and is_on_floor():
+		落地音效.play()
+	floot_check = is_on_floor()
 	
 	#向全局变量传递玩家实时位置
 	Global.player_position = global_position

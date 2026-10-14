@@ -1,18 +1,35 @@
-[gd_scene load_steps=14 format=3 uid="uid://b33wpegyma3ab"]
+[gd_scene load_steps=26 format=3 uid="uid://b33wpegyma3ab"]
 
+[ext_resource type="AudioStream" uid="uid://cikwrw8jaonhd" path="res://sound/ui/UI SFX_MENU_Hover.wav" id="1_4t16w"]
 [ext_resource type="Script" uid="uid://ctt32la2jgnom" path="res://script/按钮效果.gd" id="1_56csj"]
-[ext_resource type="Texture2D" uid="uid://dnn0121eooalj" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/previews/tiny_menu_panels_contact_sheet.png" id="1_d5kmq"]
+[ext_resource type="Script" uid="uid://d0o8x37r0d388" path="res://script/audio_stream_player_2d.gd" id="2_auq01"]
 [ext_resource type="Texture2D" uid="uid://bhemhh72aco62" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/exports/panels/slate/inventory_panel_slate.png" id="2_d5kmq"]
-[ext_resource type="Texture2D" uid="uid://cepiqjo1c12it" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/previews/tiny_menu_panels_cover.png" id="3_g8nyb"]
+[ext_resource type="AudioStream" uid="uid://32h2qsx1nb6n" path="res://sound/ui/UI SFX_EXTRA_Marimba Hopping.wav" id="3_auq01"]
 [ext_resource type="Theme" uid="uid://nhw45vv13p6p" path="res://Theme/主菜单.tres" id="3_ie54b"]
 [ext_resource type="Script" uid="uid://ch8exiyqujw7c" path="res://script/按钮动效.gd" id="4_bqayw"]
-[ext_resource type="Texture2D" uid="uid://dyih0xgjg1cla" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/previews/tiny_menu_panels_menu_mockup.png" id="5_k0lpx"]
 [ext_resource type="Script" uid="uid://c4eid4be5id61" path="res://script/确定退出？.gd" id="6_qc3b3"]
+[ext_resource type="Script" uid="uid://hlqgffn6ki14" path="res://script/设置.gd" id="7_i4dga"]
+[ext_resource type="Texture2D" uid="uid://bn8fyv2c3eea2" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/exports/controls/slate/checkbox_slate_checked.png" id="7_iyfb7"]
 [ext_resource type="Script" uid="uid://dilymdgbci48r" path="res://script/任务栏.gd" id="8_3fjfo"]
+[ext_resource type="Texture2D" uid="uid://c2m3yevplxx1t" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/exports/controls/slate/checkbox_slate_disabled.png" id="8_mx6b8"]
 [ext_resource type="Texture2D" uid="uid://btt2qy7m43o0j" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/exports/cursors/slate/cursor_slate_select.png" id="9_d0eon"]
+[ext_resource type="Texture2D" uid="uid://43yjlng4epwl" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/exports/controls/slate/slider_slate.png" id="9_i4dga"]
+[ext_resource type="Texture2D" uid="uid://ghwla5rh6p6a" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/exports/controls/slate/checkbox_slate_unchecked.png" id="9_mx6b8"]
 [ext_resource type="Texture2D" uid="uid://cw7a24ofdi52o" path="res://logo.png" id="10_pj73u"]
 [ext_resource type="Texture2D" uid="uid://bbdndoy4uhbi1" path="res://sprite/搜索.png" id="11_hbr3d"]
 [ext_resource type="Texture2D" uid="uid://bheooyb01itfy" path="res://sprite/咖啡图标.png" id="12_y8371"]
+[ext_resource type="Texture2D" uid="uid://typ6v1c3j5pg" path="res://sprite/拿铁咖啡.png" id="14_mxq1t"]
+[ext_resource type="Texture2D" uid="uid://yam1oo40ex03" path="res://sprite/含糖咖啡.png" id="15_msll0"]
+[ext_resource type="Texture2D" uid="uid://o0hpvf3sbj3u" path="res://UI/5f4c7209e8ad29af/tiny-pixel-menu-panels-pack/tiny-menu-panels-pack/exports/cursors/slate/cursor_slate_pointer.png" id="16_iyfb7"]
+[ext_resource type="Texture2D" uid="uid://cgber6kah2thm" path="res://sprite/美式.png" id="16_ol1b4"]
+[ext_resource type="Script" uid="uid://dra57fbjg0807" path="res://script/鼠标.gd" id="17_mx6b8"]
+
+[sub_resource type="Gradient" id="Gradient_m7gp4"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.0768358, 0.0768358, 0.0768358, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iyfb7"]
+gradient = SubResource("Gradient_m7gp4")
 
 [node name="主菜单" type="Control"]
 layout_mode = 3
@@ -22,12 +39,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="按钮音" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_4t16w")
+script = ExtResource("2_auq01")
+
+[node name="开始游戏加载" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_auq01")
+
 [node name="按钮效果" type="Node2D" parent="."]
 script = ExtResource("1_56csj")
-
-[node name="TinyMenuPanelsContactSheet" type="Sprite2D" parent="."]
-position = Vector2(-2507, -630)
-texture = ExtResource("1_d5kmq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
@@ -39,26 +59,25 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.85696, 0.940125, 0.995413, 1)
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-8, -44)
+[node name="主窗口" type="Node2D" parent="."]
+position = Vector2(26, 45)
 scale = Vector2(1.165, 1.165)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Node2D"]
+[node name="NinePatchRect" type="NinePatchRect" parent="主窗口"]
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 25.0
-offset_top = 62.0
-offset_right = 115.0
-offset_bottom = 128.0
+offset_right = 90.0
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_d5kmq")
 region_rect = Rect2(0, 0, 256, 192)
 
-[node name="ColorRect" type="ColorRect" parent="Node2D/NinePatchRect"]
+[node name="ColorRect" type="ColorRect" parent="主窗口/NinePatchRect"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -68,7 +87,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.94209, 0.96827, 1, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Node2D/NinePatchRect"]
+[node name="ColorRect2" type="ColorRect" parent="主窗口/NinePatchRect"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -79,7 +98,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.878431, 0.94902, 0.996078, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="Node2D/NinePatchRect"]
+[node name="ColorRect3" type="ColorRect" parent="主窗口/NinePatchRect"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -90,7 +109,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.878431, 0.94902, 0.996078, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/NinePatchRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="主窗口/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -101,7 +120,7 @@ offset_right = 83.0
 offset_bottom = 28.0
 grow_vertical = 2
 
-[node name="开始" type="Button" parent="Node2D/NinePatchRect/VBoxContainer" node_paths=PackedStringArray("label")]
+[node name="开始" type="Button" parent="主窗口/NinePatchRect/VBoxContainer" node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(0, 11)
 layout_mode = 2
 theme = ExtResource("3_ie54b")
@@ -109,21 +128,21 @@ theme_override_font_sizes/font_size = 6
 script = ExtResource("4_bqayw")
 label = NodePath("../../开始2")
 
-[node name="设置" type="Button" parent="Node2D/NinePatchRect/VBoxContainer" node_paths=PackedStringArray("label")]
+[node name="设置" type="Button" parent="主窗口/NinePatchRect/VBoxContainer" node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(0, 11)
 layout_mode = 2
 theme = ExtResource("3_ie54b")
 script = ExtResource("4_bqayw")
 label = NodePath("../../设置2")
 
-[node name="退出" type="Button" parent="Node2D/NinePatchRect/VBoxContainer" node_paths=PackedStringArray("label")]
+[node name="退出" type="Button" parent="主窗口/NinePatchRect/VBoxContainer" node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(0, 11)
 layout_mode = 2
 theme = ExtResource("3_ie54b")
 script = ExtResource("4_bqayw")
 label = NodePath("../../退出2")
 
-[node name="开始2" type="Label" parent="Node2D/NinePatchRect"]
+[node name="开始2" type="Label" parent="主窗口/NinePatchRect"]
 z_index = -1
 custom_minimum_size = Vector2(0, 1.04)
 layout_mode = 2
@@ -141,7 +160,7 @@ text = "开始游戏"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="设置2" type="Label" parent="Node2D/NinePatchRect"]
+[node name="设置2" type="Label" parent="主窗口/NinePatchRect"]
 z_index = -1
 custom_minimum_size = Vector2(0, 1.04)
 layout_mode = 2
@@ -159,7 +178,7 @@ text = "设置"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="退出2" type="Label" parent="Node2D/NinePatchRect"]
+[node name="退出2" type="Label" parent="主窗口/NinePatchRect"]
 z_index = -1
 custom_minimum_size = Vector2(0, 1.04)
 layout_mode = 2
@@ -178,8 +197,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="确定退出？" type="Node2D" parent="."]
-visible = false
-position = Vector2(67, 28)
+position = Vector2(90, 57)
+scale = Vector2(1e-05, 1e-05)
 script = ExtResource("6_qc3b3")
 
 [node name="Panel" type="Panel" parent="确定退出？"]
@@ -190,16 +209,14 @@ offset_right = 206.0
 offset_bottom = 125.0
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="确定退出？"]
-z_index = 1
+z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 21.0
-offset_top = 29.0
-offset_right = 111.0
-offset_bottom = 95.0
+offset_right = 90.0
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_d5kmq")
@@ -338,35 +355,293 @@ text = "NO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TinyMenuPanelsCover" type="Sprite2D" parent="."]
-position = Vector2(-2310, -509)
-texture = ExtResource("3_g8nyb")
+[node name="设置" type="Node2D" parent="."]
+visible = false
+position = Vector2(115, 88)
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("7_i4dga")
 
-[node name="TinyMenuPanelsMenuMockup" type="Sprite2D" parent="."]
-position = Vector2(-3967, -448)
-texture = ExtResource("5_k0lpx")
+[node name="NinePatchRect" type="NinePatchRect" parent="设置"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 21.6667
+offset_top = -71.6667
+offset_right = 111.667
+offset_bottom = -5.66666
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_d5kmq")
+region_rect = Rect2(0, 0, 256, 192)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="Label" type="Label" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 5.45456
+offset_top = 4.54545
+offset_right = 45.4546
+offset_bottom = 27.5455
+theme = ExtResource("3_ie54b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 4
+text = "这种东西还没有实装哦qwq"
+
+[node name="Label6" type="Label" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 52.7273
+offset_top = 21.8182
+offset_right = 92.7273
+offset_bottom = 44.8182
+theme = ExtResource("3_ie54b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 4
+text = "全屏模式"
+
+[node name="Label2" type="Label" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = -0.909077
+offset_top = 21.8182
+offset_right = 39.0909
+offset_bottom = 44.8182
+theme = ExtResource("3_ie54b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 4
+text = "窗口模式"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 1.40667e-05
+offset_top = 29.0909
+offset_right = 40.0
+offset_bottom = 52.0909
+theme = ExtResource("3_ie54b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 4
+text = "..."
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 29.0909
+offset_right = 80.0
+offset_bottom = 52.0909
+theme = ExtResource("3_ie54b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 4
+text = "..."
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 36.3636
+offset_right = 80.0
+offset_bottom = 59.3636
+theme = ExtResource("3_ie54b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 4
+text = "..."
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 42.7273
+offset_right = 80.0
+offset_bottom = 65.7273
+theme = ExtResource("3_ie54b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 4
+text = "..."
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 1.40667e-05
+offset_top = 36.3636
+offset_right = 40.0
+offset_bottom = 59.3636
+theme = ExtResource("3_ie54b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 4
+text = "..."
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 1.40667e-05
+offset_top = 42.7273
+offset_right = 40.0
+offset_bottom = 65.7273
+theme = ExtResource("3_ie54b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 4
+text = "..."
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="设置/NinePatchRect"]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 144.0
-offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.94209, 0.96827, 1, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="设置/NinePatchRect"]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -145.0
-offset_bottom = -145.0
+offset_top = 61.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.878431, 0.94902, 0.996078, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="设置/NinePatchRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.878431, 0.94902, 0.996078, 1)
+
+[node name="TextureRect" type="TextureRect" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 74.5455
+offset_top = 20.9091
+offset_right = 114.545
+offset_bottom = 60.9091
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("7_iyfb7")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 36.3636
+offset_top = 20.9091
+offset_right = 76.3636
+offset_bottom = 60.9091
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("8_mx6b8")
+expand_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 36.3636
+offset_top = 28.1818
+offset_right = 76.3636
+offset_bottom = 68.1818
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("8_mx6b8")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 74.5455
+offset_top = 35.4545
+offset_right = 114.545
+offset_bottom = 75.4545
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("7_iyfb7")
+expand_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 36.3636
+offset_top = 35.4545
+offset_right = 76.3636
+offset_bottom = 75.4545
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("7_iyfb7")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 74.5455
+offset_top = 41.8182
+offset_right = 114.545
+offset_bottom = 81.8182
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("7_iyfb7")
+expand_mode = 1
+
+[node name="TextureRect9" type="TextureRect" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 36.3636
+offset_top = 41.8182
+offset_right = 76.3636
+offset_bottom = 81.8182
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("9_mx6b8")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 74.5455
+offset_top = 28.1818
+offset_right = 114.545
+offset_bottom = 68.1818
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("8_mx6b8")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 56.3637
+offset_top = 55.4545
+offset_right = 216.364
+offset_bottom = 95.4545
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("9_i4dga")
+
+[node name="TextureRect10" type="TextureRect" parent="设置/NinePatchRect"]
+layout_mode = 0
+offset_left = 17.2727
+offset_top = 55.4545
+offset_right = 177.273
+offset_bottom = 95.4545
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("9_i4dga")
+
+[node name="shadow" type="Node2D" parent="."]
+position = Vector2(128, 72)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Sprite2D" type="Sprite2D" parent="shadow"]
+z_index = 6
+position = Vector2(0, 7.62939e-06)
+scale = Vector2(1, 144)
+texture = SubResource("GradientTexture1D_iyfb7")
+
+[node name="拿铁" type="Sprite2D" parent="shadow"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+z_index = 6
+position = Vector2(-12, 0)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("14_mxq1t")
+
+[node name="含糖" type="Sprite2D" parent="shadow"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+z_index = 6
+position = Vector2(0, -2)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("15_msll0")
+
+[node name="美式" type="Sprite2D" parent="shadow"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+z_index = 6
+position = Vector2(12, 0)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("16_ol1b4")
 
 [node name="任务栏" type="ColorRect" parent="."]
 layout_mode = 1
@@ -496,7 +771,19 @@ offset_right = 122.13
 offset_bottom = 8.0
 scale = Vector2(0.315, 0.48)
 
-[connection signal="button_down" from="Node2D/NinePatchRect/VBoxContainer/开始" to="按钮效果" method="_on_开始_button_down"]
-[connection signal="pressed" from="Node2D/NinePatchRect/VBoxContainer/退出" to="按钮效果" method="_on_退出_pressed"]
+[node name="鼠标" type="TextureRect" parent="."]
+z_index = 20
+layout_mode = 0
+offset_right = 6.0
+offset_bottom = 6.0
+rotation = 4.90438
+mouse_filter = 2
+texture = ExtResource("16_iyfb7")
+expand_mode = 1
+script = ExtResource("17_mx6b8")
+
+[connection signal="button_down" from="主窗口/NinePatchRect/VBoxContainer/开始" to="按钮效果" method="_on_开始_button_down"]
+[connection signal="pressed" from="主窗口/NinePatchRect/VBoxContainer/设置" to="按钮效果" method="_on_设置_pressed"]
+[connection signal="pressed" from="主窗口/NinePatchRect/VBoxContainer/退出" to="按钮效果" method="_on_退出_pressed"]
 [connection signal="pressed" from="确定退出？/NinePatchRect2/YES" to="确定退出？" method="_on_yes_pressed"]
 [connection signal="pressed" from="确定退出？/NinePatchRect2/NO" to="确定退出？" method="_on_no_pressed"]

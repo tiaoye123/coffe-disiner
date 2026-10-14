@@ -1,6 +1,7 @@
-[gd_scene load_steps=66 format=3 uid="uid://c7rakrsxqfs34"]
+[gd_scene load_steps=67 format=3 uid="uid://c7rakrsxqfs34"]
 
 [ext_resource type="Script" uid="uid://75dlwli0i2k" path="res://script/player.gd" id="1_v6fml"]
+[ext_resource type="AudioStream" uid="uid://c4wvwefkect4w" path="res://sound/footsteps/Concrete 2.wav" id="2_mdl7e"]
 [ext_resource type="Texture2D" uid="uid://yhldui46pn80" path="res://sprite/主角.png" id="2_v6fml"]
 [ext_resource type="Texture2D" uid="uid://cdaq8peykjf47" path="res://sprite/美式咖啡球.png" id="3_3li8b"]
 
@@ -711,6 +712,18 @@ color_ramp = SubResource("GradientTexture1D_70d11")
 z_index = 5
 script = ExtResource("1_v6fml")
 jump_speed = -165.0
+
+[node name="音效" type="Node2D" parent="."]
+
+[node name="走路音效1" type="AudioStreamPlayer2D" parent="音效"]
+volume_db = -10.0
+
+[node name="走路音效2" type="AudioStreamPlayer2D" parent="音效"]
+volume_db = -10.0
+
+[node name="落地音效" type="AudioStreamPlayer2D" parent="音效"]
+stream = ExtResource("2_mdl7e")
+volume_db = -2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1.5, 1.5, 1.5, 1)

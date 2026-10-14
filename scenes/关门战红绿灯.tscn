@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bire5284tjtdc"]
+[gd_scene load_steps=7 format=3 uid="uid://bire5284tjtdc"]
 
 [ext_resource type="Script" uid="uid://b4kd5i8gbbk32" path="res://script/关门战红绿灯.gd" id="1_3tguv"]
 [ext_resource type="Texture2D" uid="uid://cq6bsedntel3y" path="res://sprite/红绿灯.png" id="1_g1kj2"]
+[ext_resource type="AudioStream" uid="uid://bai6k7426311n" path="res://sound/ui/UI SFX_MENU_Confirm.wav" id="2_5krot"]
+[ext_resource type="AudioStream" uid="uid://v2am7t3558iv" path="res://sound/ui/UI SFX_InGameMenu_Open.wav" id="3_ngroc"]
 
 [sub_resource type="Gradient" id="Gradient_g1kj2"]
 offsets = PackedFloat32Array(0, 0.3, 1)
@@ -15,6 +17,12 @@ fill_to = Vector2(0.111111, 0.149573)
 
 [node name="关门战红绿灯" type="Node2D"]
 script = ExtResource("1_3tguv")
+
+[node name="开灯" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_5krot")
+
+[node name="结束" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ngroc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(7.92915, -2.79195)
