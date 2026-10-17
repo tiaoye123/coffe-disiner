@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://be6nymm2s01am"]
+[gd_scene load_steps=13 format=3 uid="uid://be6nymm2s01am"]
 
 [ext_resource type="Script" uid="uid://dghsuqv8ly78" path="res://script/破碎平台——第一房间演出专用.gd" id="1_cdc67"]
 [ext_resource type="Texture2D" uid="uid://baw1tc7pvnshh" path="res://sprite/IndustrialPunk_Tileset.png" id="2_cdc67"]
+[ext_resource type="AudioStream" uid="uid://dag4v8xwku72b" path="res://sound/Desktop 2026.10.14 - 17.26.25.01_片段_x5.wav" id="3_bx3n0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdc67"]
 texture = ExtResource("2_cdc67")
@@ -548,5 +549,9 @@ lifetime = 0.8
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_m373l")
+
+[node name="破碎音效" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bx3n0")
+volume_db = 14.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

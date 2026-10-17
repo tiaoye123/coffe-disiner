@@ -55,6 +55,12 @@ const 第六房间limit_top : float = -1000000
 const 第六房间limit_right : float = 10000000
 const 第六房间limit_button : float = 10000000
 const player_start_position_in_sixth_room : Vector2 = Vector2(1522 , -38)
+#第七房间
+@onready var 切房判定06: Area2D = $"../切房判定组/切房判定06"
+const 第七房间limit_left : float = -1000000
+const 第七房间limit_top : float = -1000000
+const 第七房间limit_right : float = 10000000
+const 第七房间limit_button : float = 10000000
 
 
 
@@ -191,6 +197,16 @@ func _on_切房判定05_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(1.0).timeout
 		Global.player_can_move = true
 		Global.玩家进入关门战场地.emit()
+
+
+func _on_切房判定06_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		切房判定06.queue_free()
+		global_position = Vector2(1893 , -101)
+		Global.player_can_move = false
+		Global.玩家进入boss场地.emit()
+		await get_tree().create_timer(1.0).timeout
+		Global.player_can_move = true
 
 
 func 死亡重置判定() -> void:

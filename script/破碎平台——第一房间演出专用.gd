@@ -4,6 +4,7 @@ extends StaticBody2D
 @onready var area_2d: Area2D = $Area2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
+@onready var 破碎音效: AudioStreamPlayer2D = $破碎音效
 
 
 
@@ -29,6 +30,7 @@ func 平台晃动() -> void:
 
 
 func 平台破碎() -> void:
+	破碎音效.play()
 	gpu_particles_2d.emitting = true
 	tile_map_layer.visible = false
 	collision_shape_2d.queue_free()

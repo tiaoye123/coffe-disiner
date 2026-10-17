@@ -5,10 +5,12 @@
 [ext_resource type="Script" uid="uid://d2jtf7mdbg8ur" path="res://script/boss_leg.gd" id="3_jncid"]
 
 [node name="boss" type="Node2D"]
+position = Vector2(9.81506, -13.8847)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_neq0i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(100, 50, 50, 1)
 self_modulate = Color(0, 0, 0, 1)
 z_index = 1
 scale = Vector2(0.385148, 0.35062)
@@ -34,7 +36,7 @@ top_level = true
 [node name="Line2D" type="Line2D" parent="."]
 top_level = true
 scale = Vector2(0.5, 0.5)
-points = PackedVector2Array(0, 0, 28.1897, -38.2209, 56.3793, -31.9973, 84.569, 18.6707)
+points = PackedVector2Array(19.6301, -27.7695, 40.1479, -61.0504, 60.6657, -49.8869, 81.1835, 5.7211)
 default_color = Color(0, 0, 0, 1)
 script = ExtResource("3_jncid")
 "初始位置" = Vector2(77, 17)
@@ -43,7 +45,7 @@ clamp = 45.0
 [node name="Line2D2" type="Line2D" parent="."]
 top_level = true
 scale = Vector2(0.5, 0.5)
-points = PackedVector2Array(0, 0, 36.4628, -55.4224, 72.9255, -66.4004, 109.388, -32.934)
+points = PackedVector2Array(19.6301, -27.7695, 60.3929, -75.4862, 101.156, -78.7585, 141.918, -37.5863)
 default_color = Color(0, 0, 0, 1)
 script = ExtResource("3_jncid")
 "初始位置" = Vector2(93, -28)
@@ -51,7 +53,7 @@ script = ExtResource("3_jncid")
 [node name="Line2D3" type="Line2D" parent="."]
 top_level = true
 scale = Vector2(0.5, 0.5)
-points = PackedVector2Array(0, 0, 34.8948, -46.013, 69.7896, -47.5815, 104.684, -4.70555)
+points = PackedVector2Array(19.6301, -27.7695, 55.281, -78.8208, 90.9318, -85.4277, 126.583, -47.5901)
 default_color = Color(0, 0, 0, 1)
 script = ExtResource("3_jncid")
 "初始位置" = Vector2(89, -4)
@@ -60,7 +62,7 @@ clamp = 50.0
 [node name="Line2D4" type="Line2D" parent="."]
 top_level = true
 scale = Vector2(0.5, 0.5)
-points = PackedVector2Array(0, 0, -30.8404, -46.6741, -61.6809, -48.9038, -92.5213, -6.689)
+points = PackedVector2Array(19.6301, -27.7695, -15.5735, -75.4317, -50.7771, -78.6496, -85.9807, -37.4229)
 default_color = Color(0, 0, 0, 1)
 script = ExtResource("3_jncid")
 "初始位置" = Vector2(-83, -6)
@@ -68,7 +70,7 @@ script = ExtResource("3_jncid")
 [node name="Line2D5" type="Line2D" parent="."]
 top_level = true
 scale = Vector2(0.5, 0.5)
-points = PackedVector2Array(0, 0, -30.589, -38.5621, -61.178, -32.6798, -91.767, 17.647)
+points = PackedVector2Array(19.6301, -27.7695, -6.39618, -63.0747, -32.4225, -53.9355, -58.4488, -0.351799)
 default_color = Color(0, 0, 0, 1)
 script = ExtResource("3_jncid")
 "初始位置" = Vector2(-78, 15)
@@ -77,7 +79,7 @@ clamp = 45.0
 [node name="Line2D6" type="Line2D" parent="."]
 top_level = true
 scale = Vector2(0.5, 0.5)
-points = PackedVector2Array(0, 0, -33.9181, -56.5304, -67.8362, -68.6163, -101.754, -36.2579)
+points = PackedVector2Array(19.6301, -27.7695, -16.3877, -80.375, -52.4055, -88.5361, -88.4233, -52.2527)
 default_color = Color(0, 0, 0, 1)
 script = ExtResource("3_jncid")
 "初始位置" = Vector2(-87, -31)

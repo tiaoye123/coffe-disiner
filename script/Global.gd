@@ -1,6 +1,7 @@
 extends Node
 
 #全局信号
+signal game_over()
 #获取增益时的信号，buff_name用于传递玩家取得的buff种类
 signal get_coffe_buff(buff_name : String)
 signal enter_to_crasy()

@@ -40,8 +40,7 @@ func _draw() -> void:
 	var offset := to_local(boss.global_position)
 	基准坐标 = 初始位置 + offset
 	迈腿位置 = (基准坐标 * 2) - b
-	draw_circle(基准坐标 , 4.0 , Color.RED)
-	draw_circle(迈腿位置 , 4.0, Color.GREEN)
+
 	pass
 
 
